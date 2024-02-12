@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-column-display by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:24:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | Column display</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/svg-with-js.min.css" integrity="sha512-1dRVqjH1H79nqU3U7EhqE0E6G25FHVEqfoChIwiXBLk32sOWc6ZrgDzPax1VRuBr+NJknIO6B27MdlahVuZSRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="../zh/1.x/changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="../zh/1.html">中文</a>
+                                        <a class="dropdown-item" href="../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Getting started
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Installation</p></a></li>
+<li class="nav-item"><a href="quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick start</p></a></li>
+<li class="nav-item"><a href="configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Configuration</p></a></li>
+<li class="nav-item"><a href="updating.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Upgrading</p></a></li>
+<li class="nav-item"><a href="content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Page content &amp; Layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview menu-open">
+<a href="#" class="nav-link active"><i class="nav-icon fas fa-th"></i><p>Model grid
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: block;">
+<li class="nav-item"><a href="model-grid.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column-display.html" class="nav-link active"><i class="nav-icon far fa-circle"></i><p>Column display</p></a></li>
+<li class="nav-item"><a href="model-grid-filters.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Filters</p></a></li>
+<li class="nav-item"><a href="model-grid-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column filter</p></a></li>
+<li class="nav-item"><a href="model-grid-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Inline edit</p></a></li>
+<li class="nav-item"><a href="model-grid-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Row actions</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom row &amp; batch actions</p></a></li>
+<li class="nav-item"><a href="model-grid-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Data export</p></a></li>
+<li class="nav-item"><a href="model-grid-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Header &amp; Footer</p></a></li>
+<li class="nav-item"><a href="model-grid-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Grid Initialization</p></a></li>
+<li class="nav-item"><a href="model-grid-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Total row</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick search</p></a></li>
+<li class="nav-item"><a href="model-grid-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Spec selector</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick create</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-tools.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom tools</p></a></li>
+<li class="nav-item"><a href="model-grid-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Hot keys</p></a></li>
+<li class="nav-item"><a href="model-grid-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Soft Deleting</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>Model form
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form fields</p></a></li>
+<li class="nav-item"><a href="model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Image/File upload</p></a></li>
+<li class="nav-item"><a href="model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON fields</p></a></li>
+<li class="nav-item"><a href="model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form linkage</p></a></li>
+<li class="nav-item"><a href="model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form field management</p></a></li>
+<li class="nav-item"><a href="model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form validation</p></a></li>
+<li class="nav-item"><a href="model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form callback</p></a></li>
+<li class="nav-item"><a href="model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form Initialization</p></a></li>
+<li class="nav-item"><a href="model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Model show
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Fields</p></a></li>
+<li class="nav-item"><a href="model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>Model tree</p></a></li>
+<li class="nav-item"><a href="data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>Data from</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-anchor"></i><p>Admin extensions
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="extension-development.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension development</p></a></li>
+<li class="nav-item"><a href="extension-helpers.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Helpers</p></a></li>
+<li class="nav-item"><a href="extension-media-manager.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Media manager</p></a></li>
+<li class="nav-item"><a href="extension-api-tester.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>API tester</p></a></li>
+<li class="nav-item"><a href="extension-config.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Config manager</p></a></li>
+<li class="nav-item"><a href="extension-scheduling.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Task scheduling</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>Console commands</p></a></li>
+<li class="nav-item"><a href="content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>Content message</p></a></li>
+<li class="nav-item"><a href="widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Widgets</p></a></li>
+<li class="nav-item"><a href="frontend.html" class="nav-link"><i class="nav-icon fab fa-js"></i><p>CSS/JavaScript</p></a></li>
+<li class="nav-item"><a href="permission.html" class="nav-link"><i class="nav-icon fas fa-ban"></i><p>Permissions</p></a></li>
+<li class="nav-item"><a href="custom-authentication.html" class="nav-link"><i class="nav-icon fas fa-handshake"></i><p>Custom authentication</p></a></li>
+<li class="nav-item"><a href="custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>Custom Navbar</p></a></li>
+<li class="nav-item"><a href="custom-chart.html" class="nav-link"><i class="nav-icon fas fa-chart-pie"></i><p>Custom chart</p></a></li>
+<li class="nav-item"><a href="changelog.html" class="nav-link"><i class="nav-icon fas fa-history"></i><p>Changelog</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">Column display</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#Display callback">Display callback</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#collection callback">collection callback</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Display different components according to conditions">Display different components according to conditions</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Content Mapping">Content Mapping</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Content replacement">Content replacement</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Column view">Column view</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Column expansion">Column expansion</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Popup modal box">Popup modal box</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Gavatar">Gavatar</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#File size">File size</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Download link">Download link</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Copy button">Copy button</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#QR code">QR code</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Display image">Display image</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Display label">Display label</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Show icon">Show icon</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Link">Link</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Table">Table</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Progress bar">Progress bar</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Loading status">Loading status</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Image Carousel">Image Carousel</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Date format">Date format</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Boolean display">Boolean display</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Dot prefix">Dot prefix</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Column action">Column action</a>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<p>By default, the column shows the most primitive data in the database. If you need to modify the display of the column data, refer to the following method.</p>
+<h2 id="Display callback"><a href="#Display%20callback">Display callback</a></h2>
+<p>The <code>display()</code> method is used to process the value of the current column via the passed callback function:</p>
+<pre><code class="language-php">$grid-&gt;column('title')-&gt;display(function ($title) {
+
+    return "&lt;span style='color:blue'&gt;$title&lt;/span&gt;";
+
+});</code></pre>
+<p>In the incoming anonymous function, the data can be processed in any way. In addition, the anonymous function binds the data of the current column as a parent object, and can call the data of the current row in the function:</p>
+<pre><code class="language-php">
+$grid-&gt;column('first_name');
+
+$grid-&gt;column('last_name');
+
+// `full_name` field that does not exist
+$grid-&gt;column('full_name')-&gt;display(function () {
+    return $this-&gt;first_name . ' ' . $this-&gt;last_name;
+});</code></pre>
+<blockquote>
+<p>Note: Try to avoid querying the database or calling the external API in the callback function. This will run the query or the call of the external interface when each row is rendered, which seriously affects the performance. A good way is to establish an association relationship with the model. Use the model's <code>with</code> method to query the associated data together.</p>
+</blockquote>
+<h2 id="collection callback"><a href="#collection%20callback">collection callback</a></h2>
+<p>This method is different from the <code>display</code> callback in that it can modify data in batches. Refer to the following use cases in the following examples:</p>
+<p><code>`</code>php
+use Illuminate\Database\Eloquent\Collection;</p>
+<p>$grid-&gt;model()-&gt;collection(function(Collection $collection) {
+    
+    // 1. You can add fields to each column, similar to the effect of the display callback above
+foreach ($collection as $item) {
+        $item-&gt;full_name = $item-&gt;first_name. ''. $item-&gt;last_name;
+    }</p>
+<p>    // 2. Add a sequence column to the table
+    foreach ($collection as $index =&gt; $item) {
+        $item-&gt;number = $index;
+    }
+    
+    // 3. Get data from external interface and fill it into the model collection
+    $ids = $collection-&gt;pluck('id');
+    $data = getDataFromApi($ids);
+    foreach ($collection as $index =&gt; $item) {
+        $item-&gt;column_name = $data[$index];
+    }</p>
+<p>    // Finally must return the collection object
+    return $collection;
+});
+<code>`</code></p>
+<p><code>$collection</code> represents the current model collection of tabular data. You can read or modify its data according to your needs.</p>
+<h2 id="Display different components according to conditions"><a href="#Display%20different%20components%20according%20to%20conditions">Display different components according to conditions</a></h2>
+<p>If this column is to be displayed as a different component based on certain criteria</p>
+<pre><code class="language-php">$grid-&gt;column('title')-&gt;display(function ($title, $column) {
+    
+    / / If the value of the status field of this column is equal to 1, directly display the title field
+    If ($this-&gt;status == 1) {
+        return $title;
+    }
+    
+    // Otherwise it is displayed as editable
+    return $column-&gt;editable();
+});</code></pre>
+<h2 id="Content Mapping"><a href="#Content%20Mapping">Content Mapping</a></h2>
+<blockquote>
+<p>since v1.5.17</p>
+</blockquote>
+<p>If the value of the field <code>gender</code> is <code>f</code>, <code>m</code>, it needs to be displayed with <code>female</code> and <code>male</code> respectively.</p>
+<pre><code class="language-php">$grid-&gt;column('gender')-&gt;using(['f' =&gt; 'female', 'm' =&gt; 'male']);</code></pre>
+<h2 id="Content replacement"><a href="#Content%20replacement">Content replacement</a></h2>
+<p>If you need to replace some of the values ​​of this column with other content to display:</p>
+<pre><code class="language-php">$grid-&gt;column('cost')-&gt;replace([0 =&gt; '-']);</code></pre>
+<h2 id="Column view"><a href="#Column%20view">Column view</a></h2>
+<p>Use the <code>view()</code> method to make the current column render a view display output, such as having a view <code>resources/views/content.blade.php</code></p>
+<pre><code class="language-php">&lt;p&gt;
+
+{{ $value }}
+
+{{ $model-&gt;id }}
+
+&lt;/p&gt;</code></pre>
+<p>By default, two variables of the view are passed in, <code>$model</code> is the model of the current row, and <code>$value</code> is the value of the current column.</p>
+<p>Then use the following call to render this view output</p>
+<pre><code class="language-php">$grid-&gt;column('content')-&gt;view('content');</code></pre>
+<p>This method can be used to render complex column content.</p>
+<h2 id="Column expansion"><a href="#Column%20expansion">Column expansion</a></h2>
+<blockquote>
+<p>Since v1.6.10</p>
+</blockquote>
+<p>If there are more fields in a row, you can hide too much content by using the column expansion feature. Expand the display by clicking on the column, or click to expand other related data, such as the following example, to expand the 10 latest comments under an article:</p>
+<pre><code class="language-php">Use Encore\Admin\Widgets\Table;
+
+$grid-&gt;column('title', 'title')-&gt;expand(function ($model) {
+
+    $comments = $model-&gt;comments()-&gt;take(10)-&gt;get()-&gt;map(function ($comment) {
+        return $comment-&gt;only(['id', 'content', 'created_at']);
+    });
+
+    return new Table(['ID', 'content', 'release time'], $comments-&gt;toArray());
+});</code></pre>
+<p>The effect is as follows:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/54087610-7abb7280-438f-11e9-842a-012ac2063a7a.gif" alt="Kapture 2019-03-10 at 23 46 20"></p>
+<p>Any content that can be rendered can be returned in the closure function.</p>
+<h2 id="Popup modal box"><a href="#Popup%20modal%20box">Popup modal box</a></h2>
+<blockquote>
+<p>Since v1.6.10</p>
+</blockquote>
+<p>Similar to the <code>column expansion</code> function, you can display more content by popping up the modal box.</p>
+<pre><code class="language-php">$grid-&gt;column('title', 'title')-&gt;modal('latest comment', function ($model) {
+
+    $comments = $model-&gt;comments()-&gt;take(10)-&gt;get()-&gt;map(function ($comment) {
+        return $comment-&gt;only(['id', 'content', 'created_at']);
+    });
+
+    return new Table(['ID', 'content', 'release time'], $comments-&gt;toArray());
+});</code></pre>
+<p>The effect is as follows:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/54087609-7abb7280-438f-11e9-8a44-7e68bb126cd1.gif" alt="Kapture 2019-03-10 at 23 43 49"></p>
+<h2 id="Gavatar"><a href="#Gavatar">Gavatar</a></h2>
+<p>If this column of data is a email, you want to display it as a Gavatar:</p>
+<pre><code class="language-php">$grid-&gt;column('email', 'avatar')-&gt;gravatar();
+
+// set the size
+$grid-&gt;column('email', 'avatar')-&gt;gravatar(45);
+</code></pre>
+<h2 id="File size"><a href="#File%20size">File size</a></h2>
+<p>If the data in this column is the number of bytes representing the file size, you can display the more readable text by calling the <code>filezise</code> method.</p>
+<pre><code class="language-php">$grid-&gt;column('file_size')-&gt;filesize();</code></pre>
+<p>Such a value <code>199812019</code> will be displayed as <code>190.56 MB</code></p>
+<h2 id="Download link"><a href="#Download%20link">Download link</a></h2>
+<p>If the data in this column stores the path to the uploaded file, you can set this column as a downloadable link by calling the <code>downloadable</code> method.</p>
+<pre><code class="language-php">$grid-&gt;column('file_path')-&gt;downloadable();</code></pre>
+<h2 id="Copy button"><a href="#Copy%20button">Copy button</a></h2>
+<p>With the following call, a copy icon will appear in front of each line of text in this column, click on it to copy its value</p>
+<pre><code class="language-php">$grid-&gt;column('title')-&gt;copyable();</code></pre>
+<h2 id="QR code"><a href="#QR%20code">QR code</a></h2>
+<p>Through the following call, a QR code icon will appear in front of each line of text in this column. Click on it to expand a small bullet box, which will display the QR code of this column value.</p>
+<pre><code class="language-php">$grid-&gt;column('link')-&gt;qrcode();</code></pre>
+<h2 id="Display image"><a href="#Display%20image">Display image</a></h2>
+<p>If the <code>picture</code> field holds the full address of the picture, or the path, the column can be rendered as a picture display in the following way.</p>
+<p>Multi-graph display is supported, and field output is required as an array.</p>
+<pre><code class="language-php">$grid-&gt;column('picture')-&gt;image();
+
+/ / Set the server and width
+$grid-&gt;column('picture')-&gt;image('http://xxx.com', 100, 100);
+
+// show multiple images
+$grid-&gt;column('pictures')-&gt;display(function ($pictures) {
+
+    return json_decode($pictures, true);
+
+})-&gt;image('http://xxx.com', 100, 100);</code></pre>
+<h2 id="Display label"><a href="#Display%20label">Display label</a></h2>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63958209-82491200-cabc-11e9-9144-760e69779608.png" alt="WX20190830-001812"></p>
+<p>Display the field as a <code>label</code> tag. If the field is output as an array, it will appear as multiple <code>label</code> tags.</p>
+<pre><code class="language-php">$grid-&gt;column('name')-&gt;label();
+
+/ / Set the color, the default `success`, optional `danger`, `warning`, `info`, `primary`, `default`, `success`
+$grid-&gt;column('name')-&gt;label('danger');
+
+// receive array
+$grid-&gt;column('keywords')-&gt;label();</code></pre>
+<p>If you need to display the different values ​​of the <code>status</code> field as labels of different colors</p>
+<pre><code class="language-php">$grid-&gt;column('status')-&gt;label([
+    1 =&gt; 'default',
+    2 =&gt; 'warning',
+    3 =&gt; 'success',
+    4 =&gt; 'info',
+]);</code></pre>
+<h2 id="Show icon"><a href="#Show%20icon">Show icon</a></h2>
+<p>Display the field as a <code>font-awesome</code> icon, more icons refer to <a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a></p>
+<pre><code class="language-php">$grid-&gt;column('status')-&gt;icon([
+    0 =&gt; 'toggle-off',
+    1 =&gt; 'toggle-on',
+], $default = '');</code></pre>
+<h2 id="Link"><a href="#Link">Link</a></h2>
+<p>Display the field as a link.</p>
+<pre><code class="language-php">// When the link method does not pass parameters, the linked `href` and `text` are the values ​​of the current column.
+$grid-&gt;column('homepage')-&gt;link();
+
+// or pass in a specified href
+$grid-&gt;column('homepage')-&gt;link($href);</code></pre>
+<h2 id="Table"><a href="#Table">Table</a></h2>
+<p>Display the field as a table, requiring the value of the current column to be a two-dimensional array</p>
+<pre><code class="language-php">/ / table method does not pass parameters, the title of the table is the key of each column of the two-dimensional array
+$grid-&gt;column('settings')-&gt;table();
+
+// You can specify the key for each column by the following method
+$grid-&gt;column('settings')-&gt;table(['key' =&gt; 'key', 'val' =&gt; 'value']);</code></pre>
+<h2 id="Progress bar"><a href="#Progress%20bar">Progress bar</a></h2>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63958092-401fd080-cabc-11e9-9d51-f879e7708bcb.png" alt="WX20190830-002033"></p>
+<p>Display the field as a progress bar, the value of the current column needs to be a value, the default maximum value is 100,</p>
+<pre><code class="language-php">$grid-&gt;column('progress')-&gt;progressBar();
+
+// optional parameters
+$grid-&gt;column('progress')-&gt;progressBar($style = 'primary', $size = 'sm', $max = 100);</code></pre>
+<p><code>$style</code> is used to set the style, optional values ​​<code>danger</code>, <code>warning</code>, <code>info</code>, <code>primary</code>, <code>default</code>, <code>success</code></p>
+<p><code>$size</code> is used to set the size. The optional values ​​are <code>sm</code>, <code>xs</code>, <code>xxs</code>, <code>$max</code> to set the maximum range.</p>
+<h2 id="Loading status"><a href="#Loading%20status">Loading status</a></h2>
+<pre><code class="language-php">$grid-&gt;column('status')-&gt;loading([1, 2, 3]);</code></pre>
+<p>If the value of status is one of <code>[1, 2, 3]</code>, it will be displayed as a loading icon.</p>
+<p>Show other field values ​​displayed</p>
+<pre><code class="language-php">$grid-&gt;column('status')-&gt;loading([1, 2, 3], [
+    4 =&gt; 'Complete'
+]);</code></pre>
+<h2 id="Image Carousel"><a href="#Image%20Carousel">Image Carousel</a></h2>
+<p>If the field value is an image array, you can use the following call to display the image carousel component.</p>
+<pre><code class="language-php">$grid-&gt;column('images')-&gt;carousel();
+
+/ / Set the display size and image server
+$grid-&gt;column('images')-&gt;carousel($width = 300, int $height = 200, $server);</code></pre>
+<h2 id="Date format"><a href="#Date%20format">Date format</a></h2>
+<blockquote>
+<p>Since v1.7.3</p>
+</blockquote>
+<p>If the field value is a timestamp, you can format the output with the <code>date</code> method.</p>
+<pre><code class="language-php">$grid-&gt;column('created_at')-&gt;date('Y-m-d');</code></pre>
+<p>For the format parameters, please refer to PHP's <a href="http://php.net/manual/en/function.date.php">date</a> function.</p>
+<h2 id="Boolean display"><a href="#Boolean%20display">Boolean display</a></h2>
+<blockquote>
+<p>Since v1.7.6</p>
+</blockquote>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63958756-5d08d380-cabd-11e9-9a00-1ad20173c28a.png" alt="WX20190830-002712"></p>
+<p>After converting this column to bool value, it will be displayed as <code>✓</code> and <code>✗</code>.</p>
+<pre><code class="language-php">$grid-&gt;column('approved')-&gt;bool();</code></pre>
+<p>You can also specify the display according to the value of this column, such as the value of the field <code>Y</code> and <code>N</code> means <code>true</code> and <code>false</code></p>
+<pre><code class="language-php">$grid-&gt;column('approved')-&gt;bool(['Y' =&gt; true, 'N' =&gt; false]);</code></pre>
+<h2 id="Dot prefix"><a href="#Dot%20prefix">Dot prefix</a></h2>
+<blockquote>
+<p>Since v1.7.6</p>
+</blockquote>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63958090-3f873a00-cabc-11e9-9c9d-06de5e37ae54.png" alt="WX20190830-001924"></p>
+<p>This method is used to add a colored dot to the front of the column text to provide a more intuitive and clear visual effect.</p>
+<pre><code class="language-php">$grid-&gt;column('status')-&gt;using([
+    1 =&gt; 'Audit passed',
+    2 =&gt; 'Draft',
+    3 =&gt; 'Publish',
+    4 =&gt; 'Other',
+], 'Unknown')-&gt;dot([
+    1 =&gt; 'danger',
+    2 =&gt; 'info',
+    3 =&gt; 'primary',
+    4 =&gt; 'success',
+], 'warning');</code></pre>
+<p>According to the above code, use the <code>using</code> method to map the display text, and then use <code>dot</code> to set the color of the dot. The values ​​of the color are <code>danger</code>, <code>info</code>, <code>primary</code>, <code>success</code>, <code>warning</code>. These five choices.</p>
+<h2 id="Column action"><a href="#Column%20action">Column action</a></h2>
+<blockquote>
+<p>Since v1.7.6</p>
+</blockquote>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63958089-3eeea380-cabc-11e9-9a3e-0f3a22ae9756.png" alt="WX20190830-001824"></p>
+<blockquote>
+<p>Note: Please read <a href="model-grid-custom-actions.html#row-action">[Custom Action - row action]</a> before using this method.</p>
+</blockquote>
+<p>This function can display a column as an actionable button. For example, the above figure shows a column operation of <code>Stars</code> and 'Cancel Stars'. After clicking the star icon in this column, the background will switch the state of the field. Then the page icon is also followed by the switch, the specific implementation code is as follows:</p>
+<pre><code class="language-php">&lt;?php
+
+Namespace App\Admin\Actions\Document;
+
+Use App\Models\Document;
+Use Encore\Admin\Actions\RowAction;
+
+class StarDocument extends RowAction
+{
+    // After the page clicks on the chart in this column, send the request to the backend handle method to execute
+    public function handle(Document $document)
+    {
+        // Switch the value of the `star` field and save
+        $document-&gt;star = (int) !$document-&gt;star;
+        $document-&gt;save();
+
+        // return a new html to the front end after saving
+        $html = $document-&gt;star ? "&lt;i class=\"fa fa-star-o\"&gt;&lt;/i&gt;" : "&lt;i class=\"fa fa-star\"&gt;&lt;/i&gt;" ;
+
+        return $this-&gt;response()-&gt;html($html);
+    }
+
+    // This method displays different icons in this column based on the value of the `star` field.
+    public function display($star)
+    {
+        return $star ? "&lt;i class=\"fa fa-star-o\"&gt;&lt;/i&gt;" : "&lt;i class=\"fa fa-star\"&gt;&lt;/i&gt;";
+    }
+}</code></pre>
+<p>Finally, use this action in grid:</p>
+<pre><code class="language-php">use App\Admin\Actions\Document\StarDocument;
+
+$grid-&gt;column('star')-&gt;action(StarDocument::class);</code></pre>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-column-display by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:25:02 GMT -->
+</html>

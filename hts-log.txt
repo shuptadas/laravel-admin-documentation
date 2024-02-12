@@ -1,0 +1,17 @@
+HTTrack3.49-2+htsswf+htsjava launched on Tue, 23 Jan 2024 17:22:25 at https://laravel-admin.org/docs/en +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://laravel-admin.org/docs/en -O1 "D:\laravel Admin docs\laravel Admin" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+17:26:02	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/en/changelog (from https://laravel-admin.org/docs/en)
+17:27:08	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/zh/1.x/helpers.md (from https://laravel-admin.org/docs/zh/1.x/changelog)
+17:27:08	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/zh/LICENSE (from https://laravel-admin.org/docs/zh/1.x)
+17:27:08	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/model-grid-custom-actions (from https://laravel-admin.org/docs/en/model-grid-actions)
+17:27:08	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/en/layout (from https://laravel-admin.org/docs/en/custom-chart)
+17:27:19	Error: 	"Not Found" (404) at link https://laravel-admin.org/docs/zh/1.x/model-table.md (from https://laravel-admin.org/docs/zh/2.x/quick-start)
+
+HTTrack Website Copier/3.49-2 mirror complete in 4 minutes 54 seconds : 282 links scanned, 275 files written (16214171 bytes overall) [12141717 bytes received at 41298 bytes/sec], 5851572 bytes transferred using HTTP compression in 213 files, ratio 24%, 10.8 requests per connection
+(6 errors, 0 warnings, 0 messages)

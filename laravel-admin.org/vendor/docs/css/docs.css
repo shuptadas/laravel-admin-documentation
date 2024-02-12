@@ -1,0 +1,129 @@
+.content-wrapper pre {
+    padding: 1em !important;
+    margin: .5em 0 2em !important;
+    display: block !important;
+    font-size: 87.5% !important;
+    overflow: auto !important;
+}
+
+.content-wrapper h1{
+    font-size:2em !important;
+}
+
+.content-wrapper h2{
+    font-size:1.75em !important;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+.content-wrapper h3{
+    font-size:1.25em !important;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+.content-wrapper h4{
+    font-size:1em !important;
+    margin-bottom: 1rem;
+}
+
+.content-wrapper h2 a {
+    position: relative;
+    color: #090910;
+}
+
+.content-wrapper h3 a {
+    position: relative;
+    color: #090910;
+}
+
+.content-wrapper h2 a:before, .content-wrapper h3 a:before {
+    top: -3px;
+    content: "#";
+    font-weight: 400;
+    margin-left: -20px;
+    position: absolute;
+    font-size: 25px;
+    color: #17a2b8;
+    opacity: .6;
+}
+
+.content>p {
+    margin-bottom: 1.5em !important;
+}
+
+#ad {
+    height: 130px;
+    width: 400px;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#carbonads {
+    position: static;
+    display: block;
+    max-width: 400px;
+    padding: 15px 15px 15px 160px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    line-height: 1.4;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+#carbonads a {
+    color: #333;
+    text-decoration: none;
+}
+.carbon-img {
+    float: left;
+    margin-left: -145px;
+}
+
+.carbon-poweredby {
+    display: block;
+    margin-top: 0.75rem;
+    color: #777 !important;
+}
+
+.toc>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc>ul li {
+    display: block;
+    margin-bottom: .5em;
+}
+
+.toc>ul>li>ul {
+    margin-top: .5em;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.toc>ul>li>ul>li {
+    padding-left: 1.5em;
+}
+
+.toc>ul>li a {
+    position: relative;
+    font-weight: 500;
+    color: #090910;
+    text-decoration: none;
+}
+
+.toc>ul>li a:before {
+    content: "# ";
+    color: #17a2b8;
+}
+
+@media (min-width: 992px) {
+    .sidebar-mini.sidebar-collapse .text-lg {
+        visibility: hidden;
+    }
+}
+
+.docsearch {
+    height: 32px;
+}

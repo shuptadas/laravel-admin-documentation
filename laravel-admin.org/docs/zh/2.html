@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/zh/2.x by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:26:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | laravel-admin</title>
+
+
+    <link rel="stylesheet" href="../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                        <li class="nav-item dropdown">
+                <a class="nav-link bg-info rounded dropdown-toggle" href="#" id="navbarVersionDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    2.0-BETA
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarVersionDropdown">
+                                        <a class="dropdown-item" href="1.html">1.x</a>
+                                        <a class="dropdown-item" href="2.html">2.0-BETA</a>
+                                    </div>
+            </li>
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="1.x/changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="1.html">中文</a>
+                                        <a class="dropdown-item" href="../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <p></p><div class="bg-secondary m-3 p-2 rounded">
+    <a href="https://laravel-admin.org/extensions/86" target="_blank">
+        免签支付扩展
+        <span class="badge badge-info ml-3">立即查看 &gt;</span>
+    </a>
+</div><ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="2.x/README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>入门
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="2.x/installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>安装</p></a></li>
+<li class="nav-item"><a href="2.x/quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快速开始</p></a></li>
+<li class="nav-item"><a href="2.x/configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>配置文件</p></a></li>
+<li class="nav-item"><a href="2.x/upgrading.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>版本升级</p></a></li>
+<li class="nav-item"><a href="2.x/content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>页面内容和布局</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-th"></i><p>模型表格
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="2.x/model-table.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列的使用</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-column-display.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列的显示</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-filters.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>查询过滤</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列过滤器</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>行内编辑</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>数据操作</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-custom-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>自定义行&amp;批量操作</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>数据导出</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>头部和脚部</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表格初始化</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表格统计行</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷搜索</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>规格选择器</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷创建</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-data.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>外部数据源</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷键</p></a></li>
+<li class="nav-item"><a href="2.x/model-table-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>软删除</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>模型表单
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="2.x/model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基础组件</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>图片/文件上传</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON组件</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>关系处理</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单联动</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>组件管理</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单验证</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单回调</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单初始化</p></a></li>
+<li class="nav-item"><a href="2.x/model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单布局</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>模型详情
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="2.x/model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="2.x/model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>字段显示</p></a></li>
+<li class="nav-item"><a href="2.x/model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>关联关系</p></a></li>
+<li class="nav-item"><a href="2.x/model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>显示扩展</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="2.x/model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>数据模型树</p></a></li>
+<li class="nav-item"><a href="2.x/data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>数据表单</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fab fa-js"></i><p>前端
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="2.x/frontend-assets.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>前端资源</p></a></li>
+<li class="nav-item"><a href="2.x/view-rendering.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>视图渲染</p></a></li>
+<li class="nav-item"><a href="2.x/vuejs-usage.html" class="nav-link"><i class="nav-icon fab fa-vuejs"></i><p>Vuejs使用</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="2.x/localization.html" class="nav-link"><i class="nav-icon fas fa-language"></i><p>语言本地化</p></a></li>
+<li class="nav-item"><a href="2.x/extension-development.html" class="nav-link"><i class="nav-icon fas fa-anchor"></i><p>扩展开发</p></a></li>
+<li class="nav-item"><a href="2.x/commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>控制台命令</p></a></li>
+<li class="nav-item"><a href="2.x/content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>页面消息</p></a></li>
+<li class="nav-item"><a href="2.x/widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>前端组件</p></a></li>
+<li class="nav-item"><a href="2.x/custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>自定义头部导航</p></a></li>
+<li class="nav-item"><a href="2.x/qa.html" class="nav-link"><i class="nav-icon fas fa-question-circle"></i><p>常见问题</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">laravel-admin</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#Demo">Demo</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#谁在使用">谁在使用</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#依赖">依赖</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#交流">交流</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#支持">支持</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#License">License</a>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<p><a href="https://travis-ci.org/z-song/laravel-admin"><img src="https://travis-ci.org/z-song/laravel-admin.svg?branch=master" alt="Build Status"></a>
+<a href="https://styleci.io/repos/48796179"><img src="https://styleci.io/repos/48796179/shield" alt="StyleCI"></a>
+<a href="https://scrutinizer-ci.com/g/z-song/laravel-admin/?branch=master"><img src="../../../scrutinizer-ci.com/g/z-song/laravel-admin/badges/quality-score7fb3.svg?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="https://packagist.org/packages/encore/laravel-admin"><img src="https://img.shields.io/packagist/l/encore/laravel-admin.svg?maxAge=2592000" alt="Packagist"></a>
+<a href="https://packagist.org/packages/encore/laravel-admin"><img src="https://img.shields.io/packagist/dt/encore/laravel-admin.svg?style=flat-square" alt="Total Downloads"></a></p>
+<p><code>laravel-admin</code> 是一个可以快速帮你构建后台管理的工具，它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能。</p>
+<h2 id="Demo"><a href="#Demo">Demo</a></h2>
+<p>打开<code>http://demo.laravel-admin.org/</code>，用账号密码<code>admin/admin</code>登录</p>
+<h2 id="谁在使用"><a href="#%E8%B0%81%E5%9C%A8%E4%BD%BF%E7%94%A8">谁在使用</a></h2>
+<p>如果你的公司和产品使用了laravel-admin，欢迎到<a href="https://github.com/z-song/laravel-admin/issues/3043">这里</a>留言。</p>
+<table class="table table-bordered bg-light">
+<thead><tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="https://www.tencent.com/">腾讯</a></td>
+<td><a href="https://www.baidu.com/">百度</a></td>
+<td><a href="https://www.linghit.com/">灵机文化</a></td>
+<td><a href="http://www.trc-china.com/">科零</a></td>
+<td><a href="http://www.jmltek.net/">成都聚米粒</a></td>
+<td><a href="https://mall-to.com/">深圳墨兔科技</a></td>
+</tr>
+<tr>
+<td><a href="https://okrd.cn/">模拟考试助手</a></td>
+<td><a href="https://www.qiudian.net/">秋点科技</a></td>
+<td><a href="http://www.beats.net.cn/">上海彼邑网络科技</a></td>
+<td><a href="https://ai.wetax.com.cn/">高灯科技创新中心</a></td>
+<td><a href="http://www.yalianhui.com/">北京牙联惠</a></td>
+<td><a href="https://www.golcer.com/">高策智慧零售数据平台</a></td>
+</tr>
+<tr>
+<td><a href="http://www.7rcv.com/">小于号网络科技</a></td>
+<td><a href="http://www.ebchina.com/">中国光大集团</a></td>
+<td><a href="http://www.torindrive.com/">苏州通润驱动设备</a></td>
+<td><a href="https://www.rockfintech.com/">上海钜石信息科技</a></td>
+<td><a href="https://www.quanta-nimbus.com/">广州量子云科技</a></td>
+<td><a href="http://www.igumao.com/">珠海谷猫科技</a></td>
+</tr>
+<tr>
+<td><a href="http://daohang.mianshia.com/">程序员精选导航</a></td>
+<td><a href="http://www.iwdjy.com/">四川文鼎文化科技</a></td>
+<td><a href="https://www.paycats.cn/">支付猫</a></td>
+<td><a href="https://www.xinkezhi.com/">馨科智科技（深圳）</a></td>
+<td><a href="http://www.brtoo.cn/">八兔软件科技（上海）</a></td>
+<td><a href="https://www.zoogooo.com/">四川卓谷科技</a></td>
+</tr>
+<tr>
+<td><a href="http://editideas.cn/">福州辑思文化</a></td>
+<td><a href="http://www.meiweixueyuan.cn/">美味学院</a></td>
+<td><a href="http://hiqicheng.com/">深圳企程网络</a></td>
+<td><a href="http://www.lukus.cn/">北京路酷出行</a></td>
+<td><a href="http://www.hrbcb.com.cn/">哈尔滨银行</a></td>
+<td><a href="http://www.2345.com/">上海二三四五网络科技</a></td>
+</tr>
+<tr>
+<td><a href="#">贵州国卫信安科技</a></td>
+<td><a href="https://www.y2b.xyz/">Y2B downloader</a></td>
+<td><a href="https://yuantian.tech/">无锡元田信息科技</a></td>
+<td><a href="https://jfcat.cn/">山东潍坊玖樱传媒</a></td>
+<td><a href="https://www.fheart.cn/">重庆初心文化传媒</a></td>
+<td><a href="http://www.gxsww.com/">广西智汇云网络科技</a></td>
+</tr>
+<tr>
+<td><a href="#">江苏艾克斯</a></td>
+<td><a href="http://higgses.com/">成都希格斯网络科技</a></td>
+<td><a href="https://www.foreverblog.cn/">十年之约项目组</a></td>
+<td><a href="https://www.wggai.com/">五宫格信息科技</a></td>
+<td><a href="https://www.rongcloud.cn/">北京云中融信</a></td>
+<td><a href="http://shanyue88.com/">湖南希文网络科技</a></td>
+</tr>
+<tr>
+<td><a href="http://surebetter.cn/">广州数佰特信息</a></td>
+<td><a href="http://www.elscare.com/">厦门鹅卵石网络</a></td>
+<td><a href="https://shifang.tech/">上海拾芳信息</a></td>
+<td><a href="http://www.csxino.cn/">长沙欣诺网络</a></td>
+<td><a href="https://www.wkwang.cn/">陕西唯科网络</a></td>
+<td><a href="https://oran.me/">OranMe Ltd.</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="依赖"><a href="#%E4%BE%9D%E8%B5%96">依赖</a></h2>
+<p><code>laravel-admin</code> 基于以下组件:</p>
+<ul>
+<li><a href="https://laravel.com/">Laravel</a></li>
+<li><a href="https://almsaeedstudio.com/">AdminLTE</a></li>
+<li><a href="https://getbootstrap.com/">bootstrap</a></li>
+<li><a href="https://itsjavi.com/bootstrap-colorpicker/">bootstrap-colorpicker</a></li>
+<li><a href="https://github.com/kartik-v/bootstrap-fileinput">bootstrap-fileinput</a></li>
+<li><a href="https://github.com/victor-valencia/bootstrap-iconpicker">bootstrap-iconpicker</a></li>
+<li><a href="https://github.com/shaack/bootstrap-input-spinner">bootstrap-input-spinner</a></li>
+<li><a href="https://github.com/Eonasdan/bootstrap-datetimepicker/">bootstrap-datetimepicker</a></li>
+<li><a href="http://www.virtuosoft.eu/code/bootstrap-duallistbox/">bootstrap-duallistbox</a></li>
+<li><a href="https://gitbrent.github.io/bootstrap4-toggle/">bootstrap4-toggle</a></li>
+<li><a href="https://fontawesome.com/">Font awesome</a></li>
+<li><a href="https://github.com/bantikyan/icheck-bootstrap">icheck-bootstrap</a></li>
+<li><a href="https://github.com/RobinHerbots/Inputmask">Inputmask</a></li>
+<li><a href="http://ionden.com/a/plugins/ion.rangeSlider">ion.rangeSlider</a></li>
+<li><a href="https://jquery.com/">jQuery</a></li>
+<li><a href="https://github.com/defunkt/jquery-pjax">Pjax</a></li>
+<li><a href="https://github.com/pie6k/jquery.initialize">jQuery initialize</a></li>
+<li><a href="http://momentjs.com/">moment</a></li>
+<li><a href="http://dbushell.github.io/Nestable/">Nestable</a></li>
+<li><a href="http://ricostacruz.com/nprogress">Nprogress</a></li>
+<li><a href="https://github.com/select2/select2">Select2</a></li>
+<li><a href="https://sweetalert2.github.io/">Sweetalert2</a></li>
+</ul>
+<h2 id="交流"><a href="#%E4%BA%A4%E6%B5%81">交流</a></h2>
+<p>QQ群:278455482(已满)、635881319(已满)、533701919(已满)、821831984(已满)</p>
+<blockquote>
+<p>为了避免发广告及不看文档用户，请先到Github star此项目，然后附上Github账号(非邮箱)申请入群</p>
+<p>另外我已经屏蔽群私聊，所以请不要找我私聊，也请尽量不要在群里面 @我 🙏</p>
+</blockquote>
+<h2 id="支持"><a href="#%E6%94%AF%E6%8C%81">支持</a></h2>
+<p>如果觉得这个项目帮你节约了时间，不妨支持一下;)</p>
+<p><img src="../../../cloud.githubusercontent.com/assets/1479100/23287423/45c68202-fa78-11e6-8125-3e365101a313.jpg" alt="-1"></p>
+<h2 id="License"><a href="#License">License</a></h2>
+<p><code>laravel-admin</code> is licensed under <a href="LICENSE.html">The MIT License (MIT)</a>.</p>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/zh/2.x by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:26:54 GMT -->
+</html>

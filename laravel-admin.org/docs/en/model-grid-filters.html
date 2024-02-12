@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-filters by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:25:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | Model grid filters</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/svg-with-js.min.css" integrity="sha512-1dRVqjH1H79nqU3U7EhqE0E6G25FHVEqfoChIwiXBLk32sOWc6ZrgDzPax1VRuBr+NJknIO6B27MdlahVuZSRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="../zh/1.x/changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="../zh/1.html">中文</a>
+                                        <a class="dropdown-item" href="../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Getting started
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Installation</p></a></li>
+<li class="nav-item"><a href="quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick start</p></a></li>
+<li class="nav-item"><a href="configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Configuration</p></a></li>
+<li class="nav-item"><a href="updating.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Upgrading</p></a></li>
+<li class="nav-item"><a href="content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Page content &amp; Layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview menu-open">
+<a href="#" class="nav-link active"><i class="nav-icon fas fa-th"></i><p>Model grid
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: block;">
+<li class="nav-item"><a href="model-grid.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column-display.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column display</p></a></li>
+<li class="nav-item"><a href="model-grid-filters.html" class="nav-link active"><i class="nav-icon far fa-circle"></i><p>Filters</p></a></li>
+<li class="nav-item"><a href="model-grid-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column filter</p></a></li>
+<li class="nav-item"><a href="model-grid-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Inline edit</p></a></li>
+<li class="nav-item"><a href="model-grid-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Row actions</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom row &amp; batch actions</p></a></li>
+<li class="nav-item"><a href="model-grid-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Data export</p></a></li>
+<li class="nav-item"><a href="model-grid-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Header &amp; Footer</p></a></li>
+<li class="nav-item"><a href="model-grid-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Grid Initialization</p></a></li>
+<li class="nav-item"><a href="model-grid-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Total row</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick search</p></a></li>
+<li class="nav-item"><a href="model-grid-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Spec selector</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick create</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-tools.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom tools</p></a></li>
+<li class="nav-item"><a href="model-grid-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Hot keys</p></a></li>
+<li class="nav-item"><a href="model-grid-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Soft Deleting</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>Model form
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form fields</p></a></li>
+<li class="nav-item"><a href="model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Image/File upload</p></a></li>
+<li class="nav-item"><a href="model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON fields</p></a></li>
+<li class="nav-item"><a href="model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form linkage</p></a></li>
+<li class="nav-item"><a href="model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form field management</p></a></li>
+<li class="nav-item"><a href="model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form validation</p></a></li>
+<li class="nav-item"><a href="model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form callback</p></a></li>
+<li class="nav-item"><a href="model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form Initialization</p></a></li>
+<li class="nav-item"><a href="model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Model show
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Fields</p></a></li>
+<li class="nav-item"><a href="model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>Model tree</p></a></li>
+<li class="nav-item"><a href="data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>Data from</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-anchor"></i><p>Admin extensions
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="extension-development.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension development</p></a></li>
+<li class="nav-item"><a href="extension-helpers.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Helpers</p></a></li>
+<li class="nav-item"><a href="extension-media-manager.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Media manager</p></a></li>
+<li class="nav-item"><a href="extension-api-tester.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>API tester</p></a></li>
+<li class="nav-item"><a href="extension-config.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Config manager</p></a></li>
+<li class="nav-item"><a href="extension-scheduling.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Task scheduling</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>Console commands</p></a></li>
+<li class="nav-item"><a href="content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>Content message</p></a></li>
+<li class="nav-item"><a href="widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Widgets</p></a></li>
+<li class="nav-item"><a href="frontend.html" class="nav-link"><i class="nav-icon fab fa-js"></i><p>CSS/JavaScript</p></a></li>
+<li class="nav-item"><a href="permission.html" class="nav-link"><i class="nav-icon fas fa-ban"></i><p>Permissions</p></a></li>
+<li class="nav-item"><a href="custom-authentication.html" class="nav-link"><i class="nav-icon fas fa-handshake"></i><p>Custom authentication</p></a></li>
+<li class="nav-item"><a href="custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>Custom Navbar</p></a></li>
+<li class="nav-item"><a href="custom-chart.html" class="nav-link"><i class="nav-icon fas fa-chart-pie"></i><p>Custom chart</p></a></li>
+<li class="nav-item"><a href="changelog.html" class="nav-link"><i class="nav-icon fas fa-history"></i><p>Changelog</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">Model grid filters</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#Updates in v1.5.18">Updates in v1.5.18</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Style">Style</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Define the scope of the query">Define the scope of the query</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Filter type">Filter type</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Equal">Equal</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Not equal">Not equal</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Like">Like</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Ilike">Ilike</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#contains">contains</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#starts with">starts with</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#starts with">starts with</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Greater then">Greater then</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Less than">Less than</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Between">Between</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#In">In</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#NotIn">NotIn</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Date">Date</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Day">Day</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Month">Month</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#year">year</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Where">Where</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Field type">Field type</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Select">Select</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#multipleSelect">multipleSelect</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#radio">radio</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#checkbox">checkbox</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#datetime">datetime</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Complex query filter">Complex query filter</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Multi-column layout">Multi-column layout</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Filter group">Filter group</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<p><code>model-grid</code>Provides a set of data filters:</p>
+<pre><code class="language-php">$grid-&gt;filter(function($filter){
+
+    // Remove the default id filter
+    $filter-&gt;disableIdFilter();
+
+    // Add a column filter
+    $filter-&gt;like('name', 'name');
+    ...
+
+});
+</code></pre>
+<h2 id="Updates in v1.5.18"><a href="#Updates%20in%20v1.5.18">Updates in v1.5.18</a></h2>
+<p>The <code>v1.5.8</code> version has the following updates to the filter query.</p>
+<h3 id="Style"><a href="#Style">Style</a></h3>
+<blockquote>
+<p>v1.5.18 version and above support</p>
+</blockquote>
+<p>Adjust the style of the filter query panel, from the original pop-up modal to the embedded table header, click the filter button to expand the display, the default is not expanded, you can let it expand by default in the following way:</p>
+<pre><code class="language-php">
+// Operate on the `$grid` instance
+$grid-&gt;expandFilter();
+
+// Or manipulate the `$filter` instance in the filter callback
+$filter-&gt;expand();
+</code></pre>
+<p>reference <a href="http://demo.laravel-admin.org/posts">Demo</a></p>
+<h3 id="Define the scope of the query"><a href="#Define%20the%20scope%20of%20the%20query">Define the scope of the query</a></h3>
+<blockquote>
+<p>v1.5.18 version and above support</p>
+</blockquote>
+<p>You can define your most commonly used query as a query scope, which will appear in the drop-down menu of the filter button. Here are a few examples:```php</p>
+<pre><code class="language-php">$filter-&gt;scope('male', 'Male')-&gt;where('gender', 'm');
+
+// Multiple conditional query
+$filter-&gt;scope('new', 'Recently modified')
+    -&gt;whereDate('created_at', date('Y-m-d'))
+    -&gt;orWhere('updated_at', date('Y-m-d'));
+
+// Relationship query
+$filter-&gt;scope('address')-&gt;whereHas('profile', function ($query) {
+    $query-&gt;whereNotNull('address');
+});
+
+$filter-&gt;scope('trashed', 'Soft deleted data')-&gt;onlyTrashed();
+</code></pre>
+<p>The first parameter of the <code>scope</code> method is the key of the query. It will appear in the url parameter. The second parameter is the label of the drop-down menu item. If not filled, the first parameter will be displayed as the label.</p>
+<p>You can call any <code>eloquent</code> query condition after the <code>scope</code> method. The effect is referenced <a href="http://demo.laravel-admin.org/posts">Demo</a></p>
+<h2 id="Filter type"><a href="#Filter%20type">Filter type</a></h2>
+<p>Currently supported filter types are the following:</p>
+<h3 id="Equal"><a href="#Equal">Equal</a></h3>
+<p><code>sql: ... WHERE</code>column<code>= ""$input""</code>：</p>
+<pre><code class="language-php">$filter-&gt;equal('column', $label);</code></pre>
+<h3 id="Not equal"><a href="#Not%20equal">Not equal</a></h3>
+<p><code>sql: ... WHERE</code>column<code>!= ""$input""</code>：</p>
+<pre><code class="language-php">$filter-&gt;notEqual('column', $label);</code></pre>
+<h3 id="Like"><a href="#Like">Like</a></h3>
+<p><code>sql: ... WHERE</code>column<code>LIKE "%"$input"%"</code>：</p>
+<pre><code class="language-php">$filter-&gt;like('column', $label);</code></pre>
+<h3 id="Ilike"><a href="#Ilike">Ilike</a></h3>
+<p><code>sql: ... WHERE</code>column<code>ILIKE "%"$input"%"</code>：</p>
+<pre><code class="language-php">$filter-&gt;ilike('column', $label);</code></pre>
+<h3 id="contains"><a href="#contains">contains</a></h3>
+<blockquote>
+<p>since v1.6.12</p>
+</blockquote>
+<p>Equal to like query</p>
+<pre><code class="language-php">$filter-&gt;contains('title');</code></pre>
+<h3 id="starts with"><a href="#starts%20with">starts with</a></h3>
+<blockquote>
+<p>since v1.6.12</p>
+</blockquote>
+<p>Query title field data starting with input</p>
+<pre><code class="language-php">$filter-&gt;startsWith('title');</code></pre>
+<h3 id="starts with"><a href="#starts%20with">starts with</a></h3>
+<blockquote>
+<p>since v1.6.12</p>
+</blockquote>
+<p>Query title field data ending with input</p>
+<pre><code class="language-php">$filter-&gt;endsWith('title');</code></pre>
+<h3 id="Greater then"><a href="#Greater%20then">Greater then</a></h3>
+<p><code>sql: ... WHERE</code>column<code>&gt; "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;gt('column', $label);</code></pre>
+<h3 id="Less than"><a href="#Less%20than">Less than</a></h3>
+<p><code>sql: ... WHERE</code>column<code>&lt; "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;lt('column', $label);</code></pre>
+<h3 id="Between"><a href="#Between">Between</a></h3>
+<p><code>sql: ... WHERE</code>column<code>BETWEEN "$start" AND "$end"</code>：</p>
+<pre><code class="language-php">$filter-&gt;between('column', $label);
+
+// set datetime field type
+$filter-&gt;between('column', $label)-&gt;datetime();
+
+// set time field type
+$filter-&gt;between('column', $label)-&gt;time();</code></pre>
+<h3 id="In"><a href="#In">In</a></h3>
+<p><code>sql: ... WHERE</code>column<code>in (...$inputs)</code>：</p>
+<pre><code class="language-php">$filter-&gt;in('column', $label)-&gt;multipleSelect(['key' =&gt; 'value']);</code></pre>
+<h3 id="NotIn"><a href="#NotIn">NotIn</a></h3>
+<p><code>sql: ... WHERE</code>column<code>not in (...$inputs)</code>：</p>
+<pre><code class="language-php">$filter-&gt;notIn('column', $label)-&gt;multipleSelect(['key' =&gt; 'value']);</code></pre>
+<h3 id="Date"><a href="#Date">Date</a></h3>
+<p><code>sql: ... WHERE DATE(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;date('column', $label);</code></pre>
+<h3 id="Day"><a href="#Day">Day</a></h3>
+<p><code>sql: ... WHERE DAY(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;day('column', $label);</code></pre>
+<h3 id="Month"><a href="#Month">Month</a></h3>
+<p><code>sql: ... WHERE MONTH(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;month('column', $label);</code></pre>
+<h3 id="year"><a href="#year">year</a></h3>
+<p><code>sql: ... WHERE YEAR(</code>column<code>) = "$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;year('column', $label);</code></pre>
+<h3 id="Where"><a href="#Where">Where</a></h3>
+<p>You can use <code>where</code> to build more complex query filtering</p>
+<p><code>sql: ... WHERE</code>title<code>LIKE "%$input" OR</code>content<code>LIKE "%$input"</code>：</p>
+<pre><code class="language-php">$filter-&gt;where(function ($query) {
+
+    $query-&gt;where('title', 'like', "%{$this-&gt;input}%")
+        -&gt;orWhere('content', 'like', "%{$this-&gt;input}%");
+
+}, 'Text');</code></pre>
+<p><code>sql: ... WHERE</code>rate<code>&gt;= 6 AND</code>created_at<code>= {$input}</code>:</p>
+<pre><code class="language-php">$filter-&gt;where(function ($query) {
+
+    $query-&gt;whereRaw("`rate` &gt;= 6 AND `created_at` = {$this-&gt;input}");
+
+}, 'Text');</code></pre>
+<p>Relationship query, query the corresponding relationship <code>profile</code> field:</p>
+<pre><code class="language-php">$filter-&gt;where(function ($query) {
+
+    $query-&gt;whereHas('profile', function ($query) {
+        $query-&gt;where('address', 'like', "%{$this-&gt;input}%")-&gt;orWhere('email', 'like', "%{$this-&gt;input}%");
+    });
+
+}, 'Address or mobile');</code></pre>
+<h2 id="Field type"><a href="#Field%20type">Field type</a></h2>
+<p>The default field type is text input, set placeholder for text input:</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;placeholder('Please input...');</code></pre>
+<p>You can also restrict the user input format by using some of the following methods:</p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;url();
+
+$filter-&gt;equal('column')-&gt;email();
+
+$filter-&gt;equal('column')-&gt;integer();
+
+$filter-&gt;equal('column')-&gt;ip();
+
+$filter-&gt;equal('column')-&gt;mac();
+
+$filter-&gt;equal('column')-&gt;mobile();
+
+// $options refer to https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;decimal($options = []);
+
+// $options refer to https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;currency($options = []);
+
+// $options refer to https://github.com/RobinHerbots/Inputmask/blob/4.x/README_numeric.md
+$filter-&gt;equal('column')-&gt;percentage($options = []);
+
+// $options refer to https://github.com/RobinHerbots/Inputmask
+$filter-&gt;equal('column')-&gt;inputmask($options = [], $icon = 'pencil');</code></pre>
+<h3 id="Select"><a href="#Select">Select</a></h3>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;select(['key' =&gt; 'value'...]);
+
+// Or from the api to obtain data, api format reference model-form `select` component
+$filter-&gt;equal('column')-&gt;select('api/users');</code></pre>
+<h3 id="multipleSelect"><a href="#multipleSelect">multipleSelect</a></h3>
+<p>Generally used in conjunction with <code>in</code> and<code>notIn</code> need to query the array of two types of inquiries can also be used in the <code>type</code> type of query:</p>
+<pre><code class="language-php">$filter-&gt;in('column')-&gt;multipleSelect(['key' =&gt; 'value'...]);
+
+// // Or from the api to obtain data, api format reference model-form `multipleSelect` component
+$filter-&gt;in('column')-&gt;multipleSelect('api/users');</code></pre>
+<h3 id="radio"><a href="#radio">radio</a></h3>
+<p>The more common scenario is the selection of categories</p>
+<pre><code class="language-php">$filter-&gt;equal('released')-&gt;radio([
+    ''   =&gt; 'All',
+    0    =&gt; 'Unreleased',
+    1    =&gt; 'Released',
+]);</code></pre>
+<h3 id="checkbox"><a href="#checkbox">checkbox</a></h3>
+<p>The more common scene is do the scope query with <code>whereIn</code>:</p>
+<pre><code class="language-php">$filter-&gt;in('gender')-&gt;checkbox([
+    'm'    =&gt; 'Male',
+    'f'    =&gt; 'Female',
+]);</code></pre>
+<h3 id="datetime"><a href="#datetime">datetime</a></h3>
+<p>Use date and time components,<code>$options</code> parameter and value reference <a href="http://eonasdan.github.io/bootstrap-datetimepicker/Options/">bootstrap-datetimepicker</a></p>
+<pre><code class="language-php">$filter-&gt;equal('column')-&gt;datetime($options);
+
+// `date()` equals to `datetime(['format' =&gt; 'YYYY-MM-DD'])`
+$filter-&gt;equal('column')-&gt;date();
+
+// `time()` equals to `datetime(['format' =&gt; 'HH:mm:ss'])`
+$filter-&gt;equal('column')-&gt;time();
+
+// `day()` equals to `datetime(['format' =&gt; 'DD'])`
+$filter-&gt;equal('column')-&gt;day();
+
+// `month()` equals to `datetime(['format' =&gt; 'MM'])`
+$filter-&gt;equal('column')-&gt;month();
+
+// `year()` equals to `datetime(['format' =&gt; 'YYYY'])`
+$filter-&gt;equal('column')-&gt;year();
+</code></pre>
+<h2 id="Complex query filter"><a href="#Complex%20query%20filter">Complex query filter</a></h2>
+<p>You can use the <code>$this-&gt;input</code> to trigger complex custom queries:</p>
+<pre><code class="language-php">$filter-&gt;where(function ($query) {
+    switch ($this-&gt;input) {
+        case 'yes':
+            // custom complex query if the 'yes' option is selected
+            $query-&gt;has('somerelationship');
+            break;
+        case 'no':
+            $query-&gt;doesntHave('somerelationship');
+            break;
+    }
+}, 'Label of the field', 'name_for_url_shortcut')-&gt;radio([
+    '' =&gt; 'All',
+    'yes' =&gt; 'Only with relationship',
+    'no' =&gt; 'Only without relationship',
+]);
+</code></pre>
+<h3 id="Multi-column layout"><a href="#Multi-column%20layout">Multi-column layout</a></h3>
+<blockquote>
+<p>since v1.6.0</p>
+</blockquote>
+<p>If there are too many filters, the page will be pulled long, which will affect the look and feel of the page. This version will support the multi-column layout of the filter. For example, 6 filters are displayed in two columns.</p>
+<pre><code class="language-php">$filter-&gt;column(1/2, function ($filter) {
+    $filter-&gt;like('title');
+    $filter-&gt;between('rate');
+});
+
+$filter-&gt;column(1/2, function ($filter) {
+    $filter-&gt;equal('created_at')-&gt;datetime();
+    $filter-&gt;between('updated_at')-&gt;datetime();
+    $filter-&gt;equal('released')-&gt;radio([
+        1 =&gt; 'YES',
+        0 =&gt; 'NO',
+    ]);
+});</code></pre>
+<blockquote>
+<p>By default, there will be a filter for the primary key field in the first column, and all three filters for the left and right will have a total of 6 filters.</p>
+</blockquote>
+<p>The first parameter of the <code>column</code> method sets the column width, which can be set to the scale <code>1/2</code> or <code>0.5</code>, or the width of the grid column of the bootstrap is <code>6</code>. If it is three columns, it can be set to <code>1/3.</code>or <code>4</code></p>
+<p>See <a href="http://demo.laravel-admin.org/posts">DEMO</a></p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/45264860-c9865f00-b475-11e8-8418-a3bdb2a834ab.png" alt="wx20180909-211708"></p>
+<h3 id="Filter group"><a href="#Filter%20group">Filter group</a></h3>
+<blockquote>
+<p>since v1.6.0</p>
+</blockquote>
+<p>Sometimes you need to set multiple filtering methods for the same field, you can do it in the following way.</p>
+<pre><code class="language-php">$filter-&gt;group('rate', function ($group) {
+    $group-&gt;gt('greater than');
+    $group-&gt;lt('less than');
+    $group-&gt;nlt('not less than');
+    $group-&gt;ngt('not greater than');
+    $group-&gt;equal('equal to');
+});</code></pre>
+<p>There are several ways to call</p>
+<pre><code class="language-php">// equals
+$group-&gt;equal();
+
+// not equal to
+$group-&gt;notEqual();
+
+// more than the
+$group-&gt;gt();
+
+// less than
+$group-&gt;lt();
+
+// greater or equal to
+$group-&gt;nlt();
+
+// less than or equal to
+$group-&gt;ngt();
+
+// match
+$group-&gt;match();
+
+// Complex conditions
+$group-&gt;where();
+
+// like query
+$group-&gt;like();
+
+// like query
+$group-&gt;contains();
+
+// ilike query
+$group-&gt;ilike();
+
+// start with the input
+$group-&gt;startWith();
+
+// end with the input
+$group-&gt;endWith();</code></pre>
+<p>See <a href="http://demo.laravel-admin.org/posts">DEMO</a></p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/45264980-77463d80-b477-11e8-917b-3495a32f018e.png" alt="wx20180909-212049"></p>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-filters by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:25:02 GMT -->
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/zh/1.x/extension-development by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:27:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | 开发扩展</title>
+
+
+    <link rel="stylesheet" href="../../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                        <li class="nav-item dropdown">
+                <a class="nav-link bg-info rounded dropdown-toggle" href="#" id="navbarVersionDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    1.x
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarVersionDropdown">
+                                        <a class="dropdown-item" href="../1.html">1.x</a>
+                                        <a class="dropdown-item" href="../2.html">2.0-BETA</a>
+                                    </div>
+            </li>
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="../1.html">中文</a>
+                                        <a class="dropdown-item" href="../../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <p></p><p></p><ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>入门
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>安装</p></a></li>
+<li class="nav-item"><a href="quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快速开始</p></a></li>
+<li class="nav-item"><a href="configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>配置文件</p></a></li>
+<li class="nav-item"><a href="upgrading.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>版本升级</p></a></li>
+<li class="nav-item"><a href="content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>页面内容和布局</p></a></li>
+<li class="nav-item"><a href="questions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>统一回复</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-th"></i><p>模型表格
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-grid.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="model-grid-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列的使用</p></a></li>
+<li class="nav-item"><a href="model-grid-column-display.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列的显示</p></a></li>
+<li class="nav-item"><a href="model-grid-filters.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>查询过滤</p></a></li>
+<li class="nav-item"><a href="model-grid-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>列过滤器</p></a></li>
+<li class="nav-item"><a href="model-grid-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>行内编辑</p></a></li>
+<li class="nav-item"><a href="model-grid-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>数据操作</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>自定义行&amp;批量操作</p></a></li>
+<li class="nav-item"><a href="model-grid-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>数据导出</p></a></li>
+<li class="nav-item"><a href="model-grid-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>头部和脚部</p></a></li>
+<li class="nav-item"><a href="model-grid-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表格初始化</p></a></li>
+<li class="nav-item"><a href="model-grid-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表格统计行</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷搜索</p></a></li>
+<li class="nav-item"><a href="model-grid-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>规格选择器</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷创建</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-tools.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>自定义工具</p></a></li>
+<li class="nav-item"><a href="model-grid-data.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>外部数据源</p></a></li>
+<li class="nav-item"><a href="model-grid-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>快捷键</p></a></li>
+<li class="nav-item"><a href="model-grid-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>软删除</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>模型表单
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基础组件</p></a></li>
+<li class="nav-item"><a href="model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>图片/文件上传</p></a></li>
+<li class="nav-item"><a href="model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON组件</p></a></li>
+<li class="nav-item"><a href="model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>关系处理</p></a></li>
+<li class="nav-item"><a href="model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单联动</p></a></li>
+<li class="nav-item"><a href="model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>组件管理</p></a></li>
+<li class="nav-item"><a href="model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单验证</p></a></li>
+<li class="nav-item"><a href="model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单回调</p></a></li>
+<li class="nav-item"><a href="model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单初始化</p></a></li>
+<li class="nav-item"><a href="model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>表单布局</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>模型详情
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>基本使用</p></a></li>
+<li class="nav-item"><a href="model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>字段显示</p></a></li>
+<li class="nav-item"><a href="model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>关联关系</p></a></li>
+<li class="nav-item"><a href="model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>显示扩展</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>数据模型树</p></a></li>
+<li class="nav-item"><a href="data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>数据表单</p></a></li>
+<li class="nav-item"><a href="localization.html" class="nav-link"><i class="nav-icon fas fa-language"></i><p>语言本地化</p></a></li>
+<li class="nav-item"><a href="frontend.html" class="nav-link"><i class="nav-icon fab fa-js"></i><p>CSS/JavaScript</p></a></li>
+<li class="nav-item"><a href="extension-development.html" class="nav-link active"><i class="nav-icon fas fa-anchor"></i><p>扩展开发</p></a></li>
+<li class="nav-item"><a href="commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>控制台命令</p></a></li>
+<li class="nav-item"><a href="content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>页面消息</p></a></li>
+<li class="nav-item"><a href="widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>前端组件</p></a></li>
+<li class="nav-item"><a href="permission.html" class="nav-link"><i class="nav-icon fas fa-ban"></i><p>用户、角色、权限</p></a></li>
+<li class="nav-item"><a href="custom-authentication.html" class="nav-link"><i class="nav-icon fas fa-handshake"></i><p>自定义登录认证</p></a></li>
+<li class="nav-item"><a href="custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>自定义头部导航</p></a></li>
+<li class="nav-item"><a href="qa.html" class="nav-link"><i class="nav-icon fas fa-question-circle"></i><p>常见问题</p></a></li>
+<li class="nav-item"><a href="changelog.html" class="nav-link"><i class="nav-icon fas fa-history"></i><p>Changelog</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">开发扩展</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#创建composer包">创建composer包</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#功能开发">功能开发</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#添加路由">添加路由</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#设置扩展属性">设置扩展属性</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#加载视图">加载视图</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#引入静态资源">引入静态资源</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#代码逻辑开发">代码逻辑开发</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#修改 composer.json &amp; README.md">修改 composer.json &amp; README.md</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#安装">安装</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#本地安装">本地安装</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#远程安装">远程安装</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#总结">总结</a>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<blockquote>
+<p>since v1.6.0</p>
+</blockquote>
+<p><code>laravel-admin</code>支持安装扩展工具来帮助丰富你的后台功能，目前在<a href="https://github.com/laravel-admin-extensions">https://github.com/laravel-admin-extensions</a>下面已经有了几十个扩展可供安装使用。</p>
+<p>如果大家在使用的过程中有在<code>laravel-admin</code>的基础上添加一些自己的功能或者组件，不妨做成一个<code>laravel-admin</code>扩展，这样可以给其它<code>laravel-admin</code>使用者提供帮助，并且在其它人的使用反馈中的提升扩展的质量。</p>
+<p>这篇文档将会以开发一个<code>phpinfo</code>的扩展为例，一步一步的开发一个扩展，并且发布给他人使用，最终的效果参考<a href="http://demo.laravel-admin.org/phpinfo">phpinfo</a></p>
+<h2 id="创建composer包"><a href="#%E5%88%9B%E5%BB%BAcomposer%E5%8C%85">创建composer包</a></h2>
+<p><code>laravel-admin</code>的包将会用composer安装，所以先要创建一个composer包，如果你安装了<code>v1.6</code>或者<code>dev-master</code>版本，可以是用内置的<code>admin:extend</code>命令来生成一个扩展的骨架</p>
+<blockquote>
+<p>运行命令的时候，可能会提示输入一个目录来存放你的扩展文件，你可以在<code>config/admin.php</code>里面增加一个配置<code>'extension_dir' =&gt; admin_path('extensions'),</code>，这样扩展文件将会存放在<code>app/Admin/extensions</code>目录下,当然你也可以放在任何其它目录</p>
+</blockquote>
+<pre><code class="language-bash">php artisan admin:extend laravel-admin-ext/phpinfo --namespace=Encore\\PHPInfo</code></pre>
+<p>其中<code>laravel-admin-ext/phpinfo</code>是包名，<code>namespace</code>选项是这个包使用的顶级命名空间，运行这个命令之后, 将会在在config/admin.php中设置的扩展目录中生成目录<code>laravel-admin-ext/phpinfo</code>和下面的文件结构</p>
+<pre><code class="language-bash">    ├── LICENSE
+    ├── README.md
+    ├── composer.json
+    ├── database
+    │   ├── migrations
+    │   └── seeds
+    ├── resources
+    │   ├── assets
+    │   └── views
+    │       └── index.blade.php
+    ├── routes
+    │   └── web.php
+    └── src
+        ├── PHPInfo.php
+        ├── PHPInfoServiceProvider.php
+        └── Http
+            └── Controllers
+                └── PHPInfoController.php</code></pre>
+<p><code>resources</code>用来放置视图文件和静态资源文件，<code>src</code>主要用来放置逻辑代码, <code>routes/web.php</code>用来存放这个扩展的路由设置，<code>database</code>用来放置数据库迁移文件和数据<code>seeders</code>。</p>
+<h2 id="功能开发"><a href="#%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91">功能开发</a></h2>
+<p>这个扩展的功能主要用来将PHP中的<code>phpinfo</code>函数所显示的页面，集成进<code>laravel-admin</code>中，它将会有一个路由和一个视图文件，没有数据库文件和静态资源文件，我们可以将没有用到的文件或目录清理掉，清理之后的目录文件为：</p>
+<pre><code class="language-bash">    ├── LICENSE
+    ├── README.md
+    ├── composer.json
+    ├── resources
+    │   └── views
+    │       └── index.blade.php
+    ├── routes
+    │   └── web.php
+    └── src
+        ├── PHPInfo.php
+        ├── PHPInfoServiceProvider.php
+        └── Http
+            └── Controllers
+                └── PHPInfoController.php</code></pre>
+<blockquote>
+<p>生成完扩展框架之后，你可能需要一边调试一边开发，所以可以参考下面的<a href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85">本地安装</a>，先把扩展安装进系统中，继续开发</p>
+</blockquote>
+<h3 id="添加路由"><a href="#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1">添加路由</a></h3>
+<p>首先添加一个路由，在<code>routes/web.php</code>中已经自动生成好了一个路由配置</p>
+<pre><code class="language-php">&lt;?php
+use Encore\PHPInfo\Http\Controllers\PHPInfoController;
+
+Route::get('phpinfo', PHPInfoController::class.'@index');</code></pre>
+<p>访问路径<code>phpinfo</code>，将会由<code>Encore\PHPInfo\Http\Controllers\PHPInfoController</code>控制器的<code>index</code>方法来处理这个请求。</p>
+<h3 id="设置扩展属性"><a href="#%E8%AE%BE%E7%BD%AE%E6%89%A9%E5%B1%95%E5%B1%9E%E6%80%A7">设置扩展属性</a></h3>
+<p><code>src/PHPInfo.php</code>作为扩展类，用来设置扩展的属性</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Encore\PHPInfo;
+
+use Encore\Admin\Extension;
+
+class PHPInfo extends Extension
+{
+    public $name = 'phpinfo';
+
+    public $views = __DIR__.'/../resources/views';
+
+    public $assets = __DIR__.'/../resources/assets';
+
+    public $menu = [
+        'title' =&gt; 'Phpinfo',
+        'path'  =&gt; 'phpinfo',
+        'icon'  =&gt; 'fa-gears',
+    ];
+}</code></pre>
+<p>这个文件用来设置这个扩展的一些属性，<code>$name</code>是这个扩展的名字，如果这个扩展有视图文件需要渲染，则必须指定这个扩展的<code>$views</code>属性，同样如果有静态资源文件需要发布，则必须设置<code>$assets</code>属性， 如果需要在左侧边栏增加一项菜单按钮，设置<code>$menu</code>属性</p>
+<p>可以根据需要去掉不必要的属性，修改之后<code>src/PHPInfo.php</code>文件的代码为：</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Encore\PHPInfo;
+
+use Encore\Admin\Extension;
+
+class PHPInfo extends Extension
+{
+    public $name = 'phpinfo';
+
+    public $views = __DIR__ . '/../resources/views';
+
+    public $menu = [
+        'title' =&gt; 'PHP info',
+        'path'  =&gt; 'phpinfo',
+        'icon'  =&gt; 'fa-exclamation',
+    ];
+}</code></pre>
+<p>然后打开<code>src/PHPInfoServiceProvider.php</code>，这个<code>ServiceProvider</code>将会在<code>laravel</code>启动的时候运行，用来将这个扩展的一些数据注册进系统中</p>
+<h3 id="加载视图"><a href="#%E5%8A%A0%E8%BD%BD%E8%A7%86%E5%9B%BE">加载视图</a></h3>
+<p>如果这个扩展需要加载视图文件，在<code>src/PHPInfoServiceProvider.php</code>的<code>handle</code>方法中加入以下的代码：</p>
+<pre><code class="language-php">if ($views = $extension-&gt;views()) {
+    $this-&gt;loadViewsFrom($views, 'phpinfo');
+}</code></pre>
+<p><code>loadViewsFrom</code>方法的的第一个参数为在扩展类<code>src/PHPInfo.php</code>中设置的视图属性，第二个参数是视图文件目录的命名空间，设置为<code>phpinfo</code>之后，在控制器中用<code>view('phpinfo::index')</code>来加载<code>resources/views</code>目录下的视图文件</p>
+<h3 id="引入静态资源"><a href="#%E5%BC%95%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90">引入静态资源</a></h3>
+<p>如果你的项目中有静态资源文件需要引入，先把文件放在<code>resources/assets</code>目录中，比如放入<code>resources/assets/foo.js</code>和<code>resources/assets/bar.css</code>这两个文件</p>
+<p>接着在扩展类<code>src/PHPInfo.php</code>中设置<code>$assets</code>属性</p>
+<pre><code class="language-php">    public $assets = __DIR__.'/../resources/assets';</code></pre>
+<p>然后在<code>src/PHPInfoServiceProvider.php</code>的<code>handle</code>方法中设置发布目录</p>
+<pre><code class="language-php">if ($this-&gt;app-&gt;runningInConsole() &amp;&amp; $assets = $extension-&gt;assets()) {
+    $this-&gt;publishes(
+        [$assets =&gt; public_path('vendor/laravel-admin-ext/phpinfo')],
+        'phpinfo'
+    );
+}</code></pre>
+<p>安装完成之后，运行<code>php artisan vendor:publish --provider=Encore\PHPInfo\PHPInfoServiceProvider</code>，文件将会复制到<code>public/vendor/laravel-admin-ext/phpinfo</code>目录中。</p>
+<p>我们需要在<code>laravel-admin</code>启动的时候在页面里引入这两个文件，需要在<code>src/PHPInfoServiceProvider.php</code>的<code>handle</code>方法加入下面的代码</p>
+<pre><code class="language-php">use use Encore\Admin\Admin;
+
+...
+
+Admin::booting(function () {
+    Admin::js('vendor/laravel-admin-ext/phpinfo/foo.js');
+    Admin::css('vendor/laravel-admin-ext/phpinfo/bar.css');
+});</code></pre>
+<p>这样就完成了静态资源的引入，在<code>phpinfo</code>这个扩展中，由于没有静态资源需要引入，所以可以忽略掉这一步</p>
+<h3 id="代码逻辑开发"><a href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E5%BC%80%E5%8F%91">代码逻辑开发</a></h3>
+<p>这个扩展的逻辑是将<code>phpinfo</code>函数显示的PHP配置数据提取出来, 然后渲染新的视图渲染输出。在这一步，参考了<a href="https://github.com/davidpiesse/nova-phpinfo">nova-phpinfo</a>的核心代码, 修改后的代码参考<a href="https://github.com/laravel-admin-extensions/phpinfo/blob/master/src/PHPInfo.php#L19-L50">PHPInfo.php</a>，</p>
+<p>接下来就是在控制器中通过调用<code>PHPInfo::toCollection</code>方法获取phpinfo的配置数据，然后渲染到视图里面，在这个扩展中，我省略了控制器这一步，直接在路由文件<code>routes/web.php</code>配置中渲染视图输出</p>
+<pre><code class="language-php">&lt;?php
+
+use Encore\Admin\Layout\Content;
+use Encore\PHPInfo\PHPInfo;
+
+$path = PHPInfo::config('path', 'phpinfo');
+
+Route::get($path, function (Content $content, PHPInfo $info) {
+    $info = $info-&gt;toCollection();
+
+    return $content
+        -&gt;header('PHP\'s configuration')
+        -&gt;description(' ')
+        -&gt;body(view('phpinfo::phpinfo', compact('info')));
+});</code></pre>
+<p>这样一个完整的扩展就开发完成了，最终完整的代码可以参考<a href="https://github.com/laravel-admin-extensions/phpinfo">phpinfo</a></p>
+<h3 id="修改 composer.json &amp; README.md"><a href="#%E4%BF%AE%E6%94%B9%20composer.json%20&amp;%20README.md">修改 composer.json &amp; README.md</a></h3>
+<p>代码部分完成之后，需要修改<code>composer.json</code>里面的内容，将<code>description</code>、<code>keywords</code>、<code>license</code>、<code>authors</code>等内容替换为你的信息，然后不要忘记完善<code>README.md</code>，补充使用文档等相关信息。</p>
+<h2 id="安装"><a href="#%E5%AE%89%E8%A3%85">安装</a></h2>
+<p>完成了扩展开发之后，根据情况可以用下面的的方式安装你的扩展</p>
+<h3 id="本地安装"><a href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85">本地安装</a></h3>
+<p>在开发的过程中，一般需要一边调试一边开发，所以先按照下面的方式进行本地安装</p>
+<p>打开你的项目中<code>composer.json</code>文件，在加入下面的配置</p>
+<pre><code class="language-json">"repositories": [
+    {
+        "type": "path",
+        "url": "app/Admin/extensions/laravel-admin-ext/phpinfo"
+    }
+]</code></pre>
+<p>然后运行<code>composer require laravel-admin-ext/phpinfo</code>完成安装，如果有静态文件需要发布，运行下面的命令</p>
+<pre><code class="language-bash">php artisan vendor:publish --provider=Encore\PHPInfo\PHPInfoServiceProvider</code></pre>
+<p>这样就完成了安装，打开<code>http://localhost/admin/phpinfo</code>访问这个扩展</p>
+<h3 id="远程安装"><a href="#%E8%BF%9C%E7%A8%8B%E5%AE%89%E8%A3%85">远程安装</a></h3>
+<p>如果开发完成之后，希望开源出来给大家使用，按照下面的步骤进行</p>
+<h4>上传到Github</h4>
+<p>先登录你的Github，创建一个仓库，然后按照页面上的提示把你的代码push上去</p>
+<pre><code class="language-bash">git init
+git remote add origin https://github.com/&lt;your-name&gt;/&lt;your-repository&gt;.git
+git add .
+git commit -am "Initial commit."
+git push origin master</code></pre>
+<h4>发布release</h4>
+<p>可以用下面的方式在本地发布版本</p>
+<pre><code class="language-bash">git tag 0.0.1 &amp;&amp; git push --tags</code></pre>
+<p>也可以在Github的仓库页面的<code>Releases</code>页面手动设置</p>
+<h4>发布到Packagist.org</h4>
+<p>接下来就是发布你的项目到<code>Packagist.org</code>，如果没有账号的话，先注册一个，然后打开顶部导航的<a href="https://packagist.org/packages/submit">Submit</a>, 填入仓库地址提交</p>
+<p>默认情况下，当您推送新代码时，Packagist.org不会自动更新，所以，您需要创建一个<a href="https://packagist.org/about#how-to-update-packages">GitHub服务钩子</a>， 你也可以使用点击页面上的“Update”按钮手动更新它，但我建议自动执行这个过程</p>
+<blockquote>
+<p>提交之后，由于各地的镜像同步时间的延迟，可能在用composer安装的时候，会暂时找不到你的项目，这个时候可能需要等待同步完成</p>
+</blockquote>
+<p>发布完成之后就可以通过composer安装你的扩展了</p>
+<h4>加入到https://github.com/laravel-admin-extensions</h4>
+<p>如果想把你开发的扩展加入到<a href="https://github.com/laravel-admin-extensions">laravel-admin-extensions</a>中，欢迎用各种方式联系我，这样可以让更多人看到并使用你开发的工具。</p>
+<h2 id="总结"><a href="#%E6%80%BB%E7%BB%93">总结</a></h2>
+<p>在<code>Laravel nova</code>发布的不到一个月的时间里，就已经有了上百个扩展，虽然<code>laravel-admin</code>在很久之前就已经支持扩展的开发，但是由于文档的不足和缺乏时间来推动，所以这一块的功能一直没有怎么发展</p>
+<p>我希望通过这篇文档，大家把自己在<code>laravel-admin</code>的使用过程中开发出来的功能, 开发成扩展沉淀下来，<code>laravel-admin</code>需要更多人的参与才能形成更好的生态系统</p>
+<p>另外大家如果有好的idea，也不妨分享出来，其它有时间有精力的同学或许可以和你一起实现它。</p>
+<blockquote>
+<p>不久的将来，<code>laravel-admin</code>将会尝试参考<a href="https://www.fastadmin.net/">fastadmin</a>的方式，将部分扩展组件商业化, 欢迎大家参与</p>
+</blockquote>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/zh/1.x/extension-development by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:27:02 GMT -->
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:24:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | Model-grid</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/svg-with-js.min.css" integrity="sha512-1dRVqjH1H79nqU3U7EhqE0E6G25FHVEqfoChIwiXBLk32sOWc6ZrgDzPax1VRuBr+NJknIO6B27MdlahVuZSRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="../zh/1.x/changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="../zh/1.html">中文</a>
+                                        <a class="dropdown-item" href="../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Getting started
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Installation</p></a></li>
+<li class="nav-item"><a href="quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick start</p></a></li>
+<li class="nav-item"><a href="configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Configuration</p></a></li>
+<li class="nav-item"><a href="updating.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Upgrading</p></a></li>
+<li class="nav-item"><a href="content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Page content &amp; Layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview menu-open">
+<a href="#" class="nav-link active"><i class="nav-icon fas fa-th"></i><p>Model grid
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: block;">
+<li class="nav-item"><a href="model-grid.html" class="nav-link active"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column-display.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column display</p></a></li>
+<li class="nav-item"><a href="model-grid-filters.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Filters</p></a></li>
+<li class="nav-item"><a href="model-grid-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column filter</p></a></li>
+<li class="nav-item"><a href="model-grid-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Inline edit</p></a></li>
+<li class="nav-item"><a href="model-grid-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Row actions</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom row &amp; batch actions</p></a></li>
+<li class="nav-item"><a href="model-grid-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Data export</p></a></li>
+<li class="nav-item"><a href="model-grid-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Header &amp; Footer</p></a></li>
+<li class="nav-item"><a href="model-grid-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Grid Initialization</p></a></li>
+<li class="nav-item"><a href="model-grid-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Total row</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick search</p></a></li>
+<li class="nav-item"><a href="model-grid-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Spec selector</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick create</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-tools.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom tools</p></a></li>
+<li class="nav-item"><a href="model-grid-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Hot keys</p></a></li>
+<li class="nav-item"><a href="model-grid-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Soft Deleting</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>Model form
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form fields</p></a></li>
+<li class="nav-item"><a href="model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Image/File upload</p></a></li>
+<li class="nav-item"><a href="model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON fields</p></a></li>
+<li class="nav-item"><a href="model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form linkage</p></a></li>
+<li class="nav-item"><a href="model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form field management</p></a></li>
+<li class="nav-item"><a href="model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form validation</p></a></li>
+<li class="nav-item"><a href="model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form callback</p></a></li>
+<li class="nav-item"><a href="model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form Initialization</p></a></li>
+<li class="nav-item"><a href="model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Model show
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Fields</p></a></li>
+<li class="nav-item"><a href="model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>Model tree</p></a></li>
+<li class="nav-item"><a href="data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>Data from</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-anchor"></i><p>Admin extensions
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="extension-development.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension development</p></a></li>
+<li class="nav-item"><a href="extension-helpers.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Helpers</p></a></li>
+<li class="nav-item"><a href="extension-media-manager.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Media manager</p></a></li>
+<li class="nav-item"><a href="extension-api-tester.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>API tester</p></a></li>
+<li class="nav-item"><a href="extension-config.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Config manager</p></a></li>
+<li class="nav-item"><a href="extension-scheduling.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Task scheduling</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>Console commands</p></a></li>
+<li class="nav-item"><a href="content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>Content message</p></a></li>
+<li class="nav-item"><a href="widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Widgets</p></a></li>
+<li class="nav-item"><a href="frontend.html" class="nav-link"><i class="nav-icon fab fa-js"></i><p>CSS/JavaScript</p></a></li>
+<li class="nav-item"><a href="permission.html" class="nav-link"><i class="nav-icon fas fa-ban"></i><p>Permissions</p></a></li>
+<li class="nav-item"><a href="custom-authentication.html" class="nav-link"><i class="nav-icon fas fa-handshake"></i><p>Custom authentication</p></a></li>
+<li class="nav-item"><a href="custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>Custom Navbar</p></a></li>
+<li class="nav-item"><a href="custom-chart.html" class="nav-link"><i class="nav-icon fas fa-chart-pie"></i><p>Custom chart</p></a></li>
+<li class="nav-item"><a href="changelog.html" class="nav-link"><i class="nav-icon fas fa-history"></i><p>Changelog</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">Model-grid</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#Basic Usage">Basic Usage</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Relation">Relation</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#One to one">One to one</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#One to many">One to many</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Many to many">Many to many</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<p>Class <code>Encore\Admin\Grid</code> is used to generate tables based on the data model,for example,we have a table <code>movies</code> in database:</p>
+<pre><code class="language-sql">movies
+    id          - integer
+    title       - string
+    director    - integer
+    describe    - string
+    rate        - tinyint
+    released    - enum(0, 1)
+    release_at  - timestamp
+    created_at  - timestamp
+    updated_at  - timestamp</code></pre>
+<p>And the model of this table is <code>App\Models\Movie</code>,The following code can generate the data grid for table <code>movies</code>:</p>
+<pre><code class="language-php">
+use App\Models\Movie;
+use Encore\Admin\Grid;
+use Encore\Admin\Facades\Admin;
+
+$grid = new Grid(new Movie);
+
+// The first column displays the id field and sets the column as a sortable column
+$grid-&gt;id('ID')-&gt;sortable();
+
+// The second column shows the title field, because the title field name and the Grid object's title method conflict, so use Grid's column () method instead
+$grid-&gt;column('title');
+
+// The third column shows the director field, which is set by the display($callback) method to display the corresponding user name in the users table
+$grid-&gt;director()-&gt;display(function($userId) {
+    return User::find($userId)-&gt;name;
+});
+
+// The fourth column appears as the describe field
+$grid-&gt;describe();
+
+// The fifth column is displayed as the rate field
+$grid-&gt;rate();
+
+// The sixth column shows the released field, formatting the display output through the display($callback) method
+$grid-&gt;released('Release?')-&gt;display(function ($released) {
+    return $released ? 'yes' : 'no';
+});
+
+// The following shows the columns for the three time fields
+$grid-&gt;release_at();
+$grid-&gt;created_at();
+$grid-&gt;updated_at();
+
+// The filter($callback) method is used to set up a simple search box for the table
+$grid-&gt;filter(function ($filter) {
+
+    // Sets the range query for the created_at field
+    $filter-&gt;between('created_at', 'Created Time')-&gt;datetime();
+});
+</code></pre>
+<h2 id="Basic Usage"><a href="#Basic%20Usage">Basic Usage</a></h2>
+<h4>Add a column</h4>
+<pre><code class="language-php">
+// Add the column directly through the field name `username`
+$grid-&gt;username('Username');
+
+// The effect is the same as above
+$grid-&gt;column('username', 'Username');
+
+// Display JSON inline fields
+$grid-&gt;column('profile-&gt;mobile', '手机号');
+
+// Add multiple columns
+$grid-&gt;columns('email', 'username' ...);</code></pre>
+<h4>Modify the source data</h4>
+<pre><code class="language-php">$grid-&gt;model()-&gt;where('id', '&gt;', 100);
+
+$grid-&gt;model()-&gt;whereIn('id', [1, 2, 3]);
+
+$grid-&gt;model()-&gt;whereBetween('votes', [1, 100]);
+
+$grid-&gt;model()-&gt;whereColumn('updated_at', '&gt;', 'created_at');
+
+$grid-&gt;model()-&gt;orderBy('id', 'desc');
+
+$grid-&gt;model()-&gt;take(100);
+</code></pre>
+<h4>Sets the number of lines displayed per page</h4>
+<pre><code class="language-php">// The default is 20 per page
+$grid-&gt;paginate(15);</code></pre>
+<h4>Modify the display output of column</h4>
+<pre><code class="language-php">$grid-&gt;text()-&gt;display(function($text) {
+    return str_limit($text, 30, '...');
+});
+
+$grid-&gt;name()-&gt;display(function ($name) {
+    return "&lt;span class='label'&gt;$name&lt;/span&gt;";
+});
+
+$grid-&gt;email()-&gt;display(function ($email) {
+    return "mailto:$email";
+});
+
+// column not in table
+$grid-&gt;column('column_not_in_table')-&gt;display(function () {
+    return 'blablabla....';
+});
+</code></pre>
+<p>The closure passed to method <code>display()</code> is bind to row data object, you can use other column data in current row.</p>
+<pre><code class="language-php">$grid-&gt;column('first_name');
+$grid-&gt;column('last_name');
+
+// column not in table
+$grid-&gt;column('full_name')-&gt;display(function () {
+    return $this-&gt;first_name.' '.$this-&gt;last_name;
+});</code></pre>
+<h4>Disable the create button</h4>
+<pre><code class="language-php">$grid-&gt;disableCreateButton();</code></pre>
+<h4>Disable Pagination</h4>
+<pre><code class="language-php">$grid-&gt;disablePagination();</code></pre>
+<h4>Disable data filter</h4>
+<pre><code class="language-php">$grid-&gt;disableFilter();</code></pre>
+<h4>Disable the export button</h4>
+<pre><code class="language-php">$grid-&gt;disableExport();</code></pre>
+<h4>Disable row selector</h4>
+<pre><code class="language-php">$grid-&gt;disableRowSelector();</code></pre>
+<h4>Disable row actions</h4>
+<pre><code class="language-php">$grid-&gt;disableActions();</code></pre>
+<h4>Disable column selector</h4>
+<pre><code class="language-php">$grid-&gt;disableColumnSelector();</code></pre>
+<h4>Set options for perPage selector</h4>
+<pre><code class="language-php">$grid-&gt;perPages([10, 20, 30, 40, 50]);</code></pre>
+<h2 id="Relation"><a href="#Relation">Relation</a></h2>
+<h3 id="One to one"><a href="#One%20to%20one">One to one</a></h3>
+<p>The <code>users</code> table and the <code>profiles</code> table are generated one-to-one relation through the <code>profiles.user_id</code> field.</p>
+<pre><code class="language-sql">uers
+    id      - integer 
+    name    - string
+    email   - string
+
+profiles
+    id      - integer 
+    user_id - integer 
+    age     - string
+    gender  - string</code></pre>
+<p>The corresponding data model are:</p>
+<pre><code class="language-php">
+class User extends Model
+{
+    public function profile()
+    {
+        return $this-&gt;hasOne(Profile::class);
+    }
+}
+
+class Profile extends Model
+{
+    public function user()
+    {
+        return $this-&gt;belongsTo(User::class);
+    }
+}
+</code></pre>
+<p>You can associate them in a grid with the following code:</p>
+<pre><code class="language-php">$grid = new Grid(new User);
+
+$grid-&gt;id('ID')-&gt;sortable();
+
+$grid-&gt;name();
+$grid-&gt;email();
+
+$grid-&gt;column('profile.age');
+$grid-&gt;column('profile.gender');
+
+//or
+$grid-&gt;profile()-&gt;age();
+$grid-&gt;profile()-&gt;gender();
+
+$grid-&gt;created_at();
+$grid-&gt;updated_at();
+</code></pre>
+<h3 id="One to many"><a href="#One%20to%20many">One to many</a></h3>
+<p>The <code>posts</code> and <code>comments</code> tables generate a one-to-many association via the <code>comments.post_id</code> field</p>
+<pre><code class="language-sql">posts
+    id      - integer 
+    title   - string
+    content - text
+
+comments
+    id      - integer 
+    post_id - integer 
+    content - string</code></pre>
+<p>The corresponding data model are:</p>
+<pre><code class="language-php">
+class Post extends Model
+{
+    public function comments()
+    {
+        return $this-&gt;hasMany(Comment::class);
+    }
+}
+
+class Comment extends Model
+{
+    public function post()
+    {
+        return $this-&gt;belongsTo(Post::class);
+    }
+}
+</code></pre>
+<p>You can associate them in a grid with the following code:</p>
+<pre><code class="language-php">
+$grid = new Grid(new Post);
+
+$grid-&gt;column('id', 'id')-&gt;sortable();
+$grid-&gt;column('title');
+$grid-&gt;column('content');
+
+$grid-&gt;column('comments', 'Comments count')-&gt;display(function ($comments) {
+    $count = count($comments);
+    return "&lt;span class='label label-warning'&gt;{$count}&lt;/span&gt;";
+});
+
+return $grid;
+</code></pre>
+<pre><code class="language-php">
+$grid = new Grid(new Comment);
+$grid-&gt;column('id');
+$grid-&gt;column('post.title');
+$grid-&gt;column('content');
+
+return $grid;</code></pre>
+<h3 id="Many to many"><a href="#Many%20to%20many">Many to many</a></h3>
+<p>The <code>users</code> and<code>roles</code> tables produce a many-to-many relationship through the pivot table <code>role_user</code></p>
+<pre><code class="language-sql">users
+    id       - integer 
+    username - string
+    password - string
+    name     - string 
+
+roles
+    id      - integer 
+    name    - string
+    slug    - string
+
+role_users
+    role_id - integer 
+    user_id - integer </code></pre>
+<p>The corresponding data model are:</p>
+<pre><code class="language-php">
+class User extends Model
+{
+    public function roles()
+    {
+        return $this-&gt;belongsToMany(Role::class);
+    }
+}
+
+class Role extends Model
+{
+    public function users()
+    {
+        return $this-&gt;belongsToMany(User::class);
+    }
+}
+</code></pre>
+<p>You can associate them in a grid with the following code:</p>
+<pre><code class="language-php">$grid = new Grid(new User);
+
+$grid-&gt;id('ID')-&gt;sortable();
+$grid-&gt;username();
+$grid-&gt;name();
+
+$grid-&gt;roles()-&gt;display(function ($roles) {
+
+    $roles = array_map(function ($role) {
+        return "&lt;span class='label label-success'&gt;{$role['name']}&lt;/span&gt;";
+    }, $roles);
+
+    return join('&amp;nbsp;', $roles);
+});
+
+$grid-&gt;created_at();
+$grid-&gt;updated_at();
+</code></pre>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:24:51 GMT -->
+</html>

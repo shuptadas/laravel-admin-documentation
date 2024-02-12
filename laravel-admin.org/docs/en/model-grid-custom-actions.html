@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-custom-actions by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:25:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Laravel admin | Custom Row &amp; Batch action</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/svg-with-js.min.css" integrity="sha512-1dRVqjH1H79nqU3U7EhqE0E6G25FHVEqfoChIwiXBLk32sOWc6ZrgDzPax1VRuBr+NJknIO6B27MdlahVuZSRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../../css/google-fonts.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../vendor/docs/css/docs.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.css" />
+    <script src="../../vendor/docs/plugins/jquery/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+<div class="wrapper">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+
+                    </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-check-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar docsearch" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <span class="ml-5"><a href="../zh/1.x/changelog.html#v1.8.9%20(2020-11-02)" class="text-danger">目前于1.8版本发现一处未授权访问安全漏洞，正在使用1.8版本的同学请尽快更新到v1.8.10版本！！！</a></span>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="https://laravel-admin.org/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://demo.laravel-admin.org/" target="_blank" class="nav-link">Demo</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="https://github.com/z-song/laravel-admin" class="nav-link" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+
+            <li class="nav-item dropdown ml-2">
+                <a class="btn btn-info btn-sm" href="#" id="navbarLangDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe-asia"></i>
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarLangDropdown">
+                                        <a class="dropdown-item" href="../zh/1.html">中文</a>
+                                        <a class="dropdown-item" href="../en.html">English</a>
+                                    </div>
+            </li>
+        </ul>
+    </nav>
+
+    <aside class="main-sidebar elevation-4 sidebar-light-info">
+        <a href="https://laravel-admin.org/" class="brand-link logo-switch navbar-light text-info">
+            <img src="../../images/logo.png" alt="AdminLTE Docs Logo Small" class="brand-image-xl logo-xs" style="height: 29px;margin-top: 1px;margin-left: 13px;">
+            <span>
+                <img src="../../images/logo.png" alt="AdminLTE Docs Logo Large" class="brand-image-xs logo-xl" style="left: 30px">
+                <span style="position: absolute;left:58px;" class="text-lg">aravel-admin</span>
+            </span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul role="menu" class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview">
+<li class="nav-item"><a href="README.html" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Overview</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Getting started
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="installation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Installation</p></a></li>
+<li class="nav-item"><a href="quick-start.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick start</p></a></li>
+<li class="nav-item"><a href="configuration.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Configuration</p></a></li>
+<li class="nav-item"><a href="updating.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Upgrading</p></a></li>
+<li class="nav-item"><a href="content-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Page content &amp; Layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview menu-open">
+<a href="#" class="nav-link active"><i class="nav-icon fas fa-th"></i><p>Model grid
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: block;">
+<li class="nav-item"><a href="model-grid.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column usage</p></a></li>
+<li class="nav-item"><a href="model-grid-column-display.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column display</p></a></li>
+<li class="nav-item"><a href="model-grid-filters.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Filters</p></a></li>
+<li class="nav-item"><a href="model-grid-column-filter.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Column filter</p></a></li>
+<li class="nav-item"><a href="model-grid-inline-edit.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Inline edit</p></a></li>
+<li class="nav-item"><a href="model-grid-actions.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Row actions</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-actions.html" class="nav-link active"><i class="nav-icon far fa-circle"></i><p>Custom row &amp; batch actions</p></a></li>
+<li class="nav-item"><a href="model-grid-export.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Data export</p></a></li>
+<li class="nav-item"><a href="model-grid-header-footer.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Header &amp; Footer</p></a></li>
+<li class="nav-item"><a href="model-grid-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Grid Initialization</p></a></li>
+<li class="nav-item"><a href="model-grid-total-row.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Total row</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-search.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick search</p></a></li>
+<li class="nav-item"><a href="model-grid-spec-selector.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Spec selector</p></a></li>
+<li class="nav-item"><a href="model-grid-quick-create.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Quick create</p></a></li>
+<li class="nav-item"><a href="model-grid-custom-tools.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Custom tools</p></a></li>
+<li class="nav-item"><a href="model-grid-hotkeys.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Hot keys</p></a></li>
+<li class="nav-item"><a href="model-grid-soft-deletes.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Soft Deleting</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-paste"></i><p>Model form
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-form.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-form-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form fields</p></a></li>
+<li class="nav-item"><a href="model-form-upload.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Image/File upload</p></a></li>
+<li class="nav-item"><a href="model-form-json-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>JSON fields</p></a></li>
+<li class="nav-item"><a href="model-form-relationships.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-form-linkage.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form linkage</p></a></li>
+<li class="nav-item"><a href="model-form-field-management.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form field management</p></a></li>
+<li class="nav-item"><a href="model-form-validation.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form validation</p></a></li>
+<li class="nav-item"><a href="model-form-callback.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form callback</p></a></li>
+<li class="nav-item"><a href="model-form-init.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form Initialization</p></a></li>
+<li class="nav-item"><a href="model-form-layout.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Form layout</p></a></li>
+</ul>
+</li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Model show
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="model-show.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Basic usage</p></a></li>
+<li class="nav-item"><a href="model-show-fields.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Fields</p></a></li>
+<li class="nav-item"><a href="model-show-relationship.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Relationship</p></a></li>
+<li class="nav-item"><a href="model-show-extension.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="model-tree.html" class="nav-link"><i class="nav-icon fas fa-tree"></i><p>Model tree</p></a></li>
+<li class="nav-item"><a href="data-form.html" class="nav-link"><i class="nav-icon fas fa-database"></i><p>Data from</p></a></li>
+<li class="nav-item has-treeview">
+<a href="#" class="nav-link"><i class="nav-icon fas fa-anchor"></i><p>Admin extensions
+<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview" style="display: none;">
+<li class="nav-item"><a href="extension-development.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Extension development</p></a></li>
+<li class="nav-item"><a href="extension-helpers.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Helpers</p></a></li>
+<li class="nav-item"><a href="extension-media-manager.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Media manager</p></a></li>
+<li class="nav-item"><a href="extension-api-tester.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>API tester</p></a></li>
+<li class="nav-item"><a href="extension-config.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Config manager</p></a></li>
+<li class="nav-item"><a href="extension-scheduling.html" class="nav-link"><i class="nav-icon far fa-circle"></i><p>Task scheduling</p></a></li>
+</ul>
+</li>
+<li class="nav-item"><a href="commands.html" class="nav-link"><i class="nav-icon fas fa-terminal"></i><p>Console commands</p></a></li>
+<li class="nav-item"><a href="content-message.html" class="nav-link"><i class="nav-icon fas fa-comments"></i><p>Content message</p></a></li>
+<li class="nav-item"><a href="widgets.html" class="nav-link"><i class="nav-icon fas fa-box"></i><p>Widgets</p></a></li>
+<li class="nav-item"><a href="frontend.html" class="nav-link"><i class="nav-icon fab fa-js"></i><p>CSS/JavaScript</p></a></li>
+<li class="nav-item"><a href="permission.html" class="nav-link"><i class="nav-icon fas fa-ban"></i><p>Permissions</p></a></li>
+<li class="nav-item"><a href="custom-authentication.html" class="nav-link"><i class="nav-icon fas fa-handshake"></i><p>Custom authentication</p></a></li>
+<li class="nav-item"><a href="custom-navbar.html" class="nav-link"><i class="nav-icon fas fa-compass"></i><p>Custom Navbar</p></a></li>
+<li class="nav-item"><a href="custom-chart.html" class="nav-link"><i class="nav-icon fas fa-chart-pie"></i><p>Custom chart</p></a></li>
+<li class="nav-item"><a href="changelog.html" class="nav-link"><i class="nav-icon fas fa-history"></i><p>Changelog</p></a></li>
+</ul>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="content-wrapper pl-5 pr-4 py-2" id="pjax-container">
+        <div class="content-header">
+            <h1 class="text-dark">Custom Row &amp; Batch action</h1>
+        </div>
+
+        <div class="content px-2">
+
+            <div class="row">
+                <div class="col">
+                    <div class="toc m-4">
+                        <ul>
+                                                        <li>
+                                <a href="#Row action">Row action</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Page redirection">Page redirection</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Batch action">Batch action</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Interaction">Interaction</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Popup dialogue box">Popup dialogue box</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Popup form">Popup form</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Grid Tools">Grid Tools</a>
+                                                                <ul>
+                                                                        <li>
+                                        <a href="#Batch action">Batch action</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#Normal action">Normal action</a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li>
+                                <a href="#Response">Response</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Permission control">Permission control</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Context-menu actions">Context-menu actions</a>
+                                                            </li>
+                                                        <li>
+                                <a href="#Old version compatible">Old version compatible</a>
+                                                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ad" class="float-right">
+                        <script async src="../../../cdn.carbonads.com/carbonafe5.js?serve=CK7DT53L&amp;placement=laraveladminorg" id="_carbonads_js"></script>
+                    </div>
+                </div>
+            </div>
+
+            
+<blockquote>
+<p>Since v1.7.3</p>
+</blockquote>
+<p>The <code>v1.7.3</code> version refactors the <code>row actions</code> and <code>batch action</code> of the data grid, and the row actions of the data are reconstructed into drop-down menu actions:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61602515-8176c200-ac6c-11e9-8ecb-dffb5768ab4f.png" alt="WX20190722-103545"></p>
+<p>In this form, it is more convenient to extend the row action. The mechanism after refactoring can make you more elegant and custom data actions.</p>
+<p>By default, the data table has 3 row actions <code>Edit</code>, <code>View</code> and <code>Delete</code> and a <code>Batch Delete</code> action. Refer to the following to customize your data action.</p>
+<h2 id="Row action"><a href="#Row%20action">Row action</a></h2>
+<p>Suppose you want to add a <code>copy</code> action to the article list. After clicking and copying the data of this line, run the following command to generate the action class:</p>
+<pre><code class="language-shell">Php artisan admin:action Post\\Replicate --grid-row --name="copy"</code></pre>
+<blockquote>
+<p>The class name is specified as <code>Post\\Replicate</code>, just to put this action class under the <code>Post</code> namespace, you can specify any space according to your module.</p>
+</blockquote>
+<p>The above command will generate the class file <code>app/Admin/Actions/Post/Replicate.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Post;
+
+use Encore\Admin\Actions\RowAction;
+use Illuminate\Database\Eloquent\Model;
+
+class Replicate extends RowAction
+{
+    public $name = 'copy';
+
+    public function handle(Model $model)
+    {
+        // $model ...
+
+        return $this-&gt;response()-&gt;success('Success message.')-&gt;refresh();
+    }
+}</code></pre>
+<p>The commit of the action will handle by the <code>handle</code> method in the class, so we only need to simply modify the logic of the <code>handle</code> method:</p>
+<pre><code class="language-php">    public function handle(Model $model)
+    {
+        // Here the model's `replicate` method is called to copy the data, then call the `save` method to save it.
+        $model-&gt;replicate()-&gt;save();
+
+        // return a success message with the content "copy success" and refresh the page
+        return $this-&gt;response()-&gt;success('copy success.')-&gt;refresh();
+    }</code></pre>
+<p>The first parameter <code>$model</code> of the <code>handle</code> method is the Eloquent model of the current row data, which can be manipulated directly.</p>
+<p>The final step is to add to the grid:</p>
+<pre><code class="language-php">use App\Admin\Actions\Post\Replicate;
+
+$grid-&gt;actions(function ($actions) {
+    $actions-&gt;add(new Replicate);
+});</code></pre>
+<p>This is added to the action drop-down menu:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61605715-5cd51700-ac79-11e9-9625-aa1f0fcfe4e2.png" alt="WX20190722-120744"></p>
+<h3 id="Page redirection"><a href="#Page%20redirection">Page redirection</a></h3>
+<p>If your <code>row action</code> just click to jump to another page:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Encore\Admin\Grid\Actions;
+
+use Encore\Admin\Actions\RowAction;
+
+class Comments extends RowAction
+{
+    public $name = 'View comments';
+
+    /**
+     * @return  string
+     */
+    public function href()
+    {
+        return "/your/uri/path";
+    }
+}</code></pre>
+<p>In the <code>href</code> method, you can use <code>$this-&gt;getResource()</code> to get the current resource root path. You can use <code>$this-&gt;getKey()</code> to get the primary key value of the current row.</p>
+<h2 id="Batch action"><a href="#Batch%20action">Batch action</a></h2>
+<p>Suppose you want to add a <code>batch copy</code> action, first run the following command to generate a batch action class:</p>
+<pre><code class="language-shell">Php artisan admin:action Post\\BatchReplicate --grid-batch --name="batch copy"</code></pre>
+<p>Generate the class file <code>app/Admin/Actions/Post/BatchReplicate.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Post;
+
+use Encore\Admin\Actions\BatchAction;
+use Illuminate\Database\Eloquent\Collection;
+
+class BatchReplicate extends BatchAction
+{
+    public $name = 'batch copy';
+
+    public function handle(Collection $collection)
+    {
+        foreach ($collection as $model) {
+            // ...
+        }
+
+        return $this-&gt;response()-&gt;success('Success message...')-&gt;refresh();
+    }
+}</code></pre>
+<p>Similarly, we only need to simply modify the logic of the <code>handle</code> method:</p>
+<pre><code class="language-php">    public function handle(Collection $collection)
+    {
+        // copy the data model for each row
+        foreach ($collection as $model) {
+            $model-&gt;replicate()-&gt;save();
+        }
+
+        / / return a success message of "copy success" and refresh the page
+        return $this-&gt;response()-&gt;success('copy success.')-&gt;refresh();
+    }</code></pre>
+<p>Add to the batch action:</p>
+<pre><code class="language-php">$grid-&gt;batchActions(function ($batch) {
+    $batch-&gt;add(new BatchReplicate());
+});</code></pre>
+<p>Then select a few rows of data in the list, click on it to see the new <code>batch copy</code>:</p>
+<p><a href="../../../user-images.githubusercontent.com/1479100/61605975-9a866f80-ac7a-11e9-867b-bde14aa7910d.jpg">1563769003923</a></p>
+<h2 id="Interaction"><a href="#Interaction">Interaction</a></h2>
+<p>When you click on an action, you will often need to make some confirmations or fill in additional data. There are two ways to interact:</p>
+<h3 id="Popup dialogue box"><a href="#Popup%20dialogue%20box">Popup dialogue box</a></h3>
+<p>For example, the above copy action, after clicking, you need to pop up a dialog box to confirm the action, add a dialog method to the class:</p>
+<pre><code class="language-php">    public function dialog()
+    {
+        $this-&gt;confirm('Are you sure to copy this row?');
+    }</code></pre>
+<p>In this way, after clicking Copy, the following confirmation box will pop up, and the action will be submitted after confirmation.</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61606520-4f219080-ac7d-11e9-8a3a-24f7c629f340.png" alt="WX20190722-123608"></p>
+<h3 id="Popup form"><a href="#Popup%20form">Popup form</a></h3>
+<p>Suppose that the 'topic list' has a report action. After clicking, you need to pop up a form, fill in the type and reason of the report, and refer to the following method:</p>
+<p>Add the following code to the action class:</p>
+<pre><code class="language-php">public function form()
+{
+    $type = [
+        1 =&gt; 'Advertising',
+        2 =&gt; 'Illegal',
+        3 =&gt; 'Fishing',
+    ];
+    
+    $this-&gt;checkbox('type', 'type')-&gt;options($type);
+    $this-&gt;textarea('reason', 'reason')-&gt;rules('required');
+}</code></pre>
+<p>When the action is clicked, a <code>form</code> form pops up:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61606916-1be00100-ac7f-11e9-8e71-fae60b26277d.png" alt="WX20190722-124903"></p>
+<p>In the <code>handle</code> method, we need to add a second parameter to get the form value:</p>
+<pre><code class="language-php">use Illuminate\Http\Request;
+
+public function handle(Model $model, Request $request)
+{
+    // Get the `type` value in the form
+    $request-&gt;get('type');
+    
+    / / Get the `reason` value in the form
+    $request-&gt;get('reason');
+
+    // Your reporting logic...
+
+    return $this-&gt;response()-&gt;success('Report submitted]'-&gt;refresh();
+}</code></pre>
+<p>The current method support for the form reference:</p>
+<pre><code class="language-php">public function form()
+{
+    // text input box
+    $this-&gt;text('name', 'Placeholder...')-&gt;rules('required|min:10');
+    
+    // Email input box
+    $this-&gt;email('name', 'Placeholder...');
+    
+    // IP input box
+    $this-&gt;ip('name', 'Placeholder...');
+    
+    // URL input box
+    $this-&gt;url('name', 'Placeholder...');
+    
+    // password input box
+    $this-&gt;password('name', 'Placeholder...');
+    
+    // mobile phone number input box
+    $this-&gt;mobile('name', 'Placeholder...');
+    
+    // text field input box
+    $this-&gt;textarea('name', 'Placeholder...');
+    
+    // Single box
+    $this-&gt;select('name', 'Placeholder...')-&gt;options([]);
+    
+    // Checkbox
+    $this-&gt;multipleSelect('name', 'Placeholder...')-&gt;options([]);
+    
+    // Checkbox
+    $this-&gt;checkbox('name', 'Placeholder...')-&gt;options([]);
+    
+    // Radio
+    $this-&gt;radio('name', 'Placeholder...')-&gt;options([]);
+    
+    // upload files
+    $this-&gt;file('name', 'Placeholder...');
+    
+    // upload image
+    $this-&gt;image('name', 'Placeholder...');
+    
+    // time and date selection
+    $this-&gt;datetime('name', 'Placeholder...');
+    
+    // date selection
+    $this-&gt;date('name', 'Placeholder...');
+    
+    // time selection
+    $this-&gt;time('name', 'Placeholder...');
+    
+    // hide
+    $this-&gt;hidden('name');
+}</code></pre>
+<h2 id="Grid Tools"><a href="#Grid%20Tools">Grid Tools</a></h2>
+<p>Custom actions, in addition to being displayed in the action column of the data table and in the drop-down menu of the batch action, can also be displayed in the tool area of ​​the table (Filter button line)</p>
+<h3 id="Batch action"><a href="#Batch%20action">Batch action</a></h3>
+<p>If you want to put the button for the batch action in the tool area instead of the drop-down menu for the batch action, you need to make some changes to the action class:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Post;
+
+use Encore\Admin\Actions\BatchAction;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
+
+class ReportPost extends BatchAction
+{
+    protected $selector = '.report-posts';
+
+    public function handle(Collection $collection, Request $request)
+    {
+        foreach ($collection as $model) {
+            //
+        }
+
+        return $this-&gt;response()-&gt;success('Report submitted!')-&gt;refresh();
+    }
+
+    public function form()
+    {
+        $this-&gt;checkbox('type', 'type')-&gt;options([]);
+        $this-&gt;textarea('reason', 'reason')-&gt;rules('required');
+    }
+
+    public function html()
+    {
+        return "&lt;a class='report-posts btn btn-sm btn-danger'&gt;&lt;i class='fa fa-info-circle'&gt;&lt;/i&gt;Report&lt;/a&gt;";
+    }
+}</code></pre>
+<p>The value of <code>$selector</code> corresponds to the button CSS selector in the <code>html</code> method. Click the 'Report' button to submit the action.</p>
+<p>Then add it to the toolbar of the form:</p>
+<pre><code class="language-php">$grid-&gt;tools(function (Grid\Tools $tools) {
+    $tools-&gt;append(new ReportPost());
+});</code></pre>
+<p>The display effect is as follows:</p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61609162-c9571280-ac87-11e9-8f93-869a188c5553.png" alt="WX20190722-135110"></p>
+<h3 id="Normal action"><a href="#Normal%20action">Normal action</a></h3>
+<p>Suppose you need to add an 'Import Data` button to the header of the form. After clicking, pop up the form upload file to import the data. Refer to the steps below.</p>
+<p>Create a normal action class by running the following command:</p>
+<pre><code class="language-shell">Php artisan admin:action Post\\ImportPost --name="import data"</code></pre>
+<p>The generated class file <code>app/Admin/Actions/Post/ImportPost.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Post;
+
+use Encore\Admin\Actions\Action;
+use Illuminate\Http\Request;
+
+class ImportPost extends Action
+{
+    protected $selector = '.import-post';
+
+    public function handle(Request $request)
+    {
+        // $request ...
+
+        return $this-&gt;response()-&gt;success('Success message...')-&gt;refresh();
+    }
+
+    public function html()
+    {
+        return &lt;&lt;&lt;HTML
+        &lt;a class="btn btn-sm btn-default import-post"&gt;Import data&lt;/a&gt;
+HTML;
+    }
+}</code></pre>
+<p>Modify this class to provide the ability to upload files and add logic to process the data:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Admin\Actions\Post;
+
+use Encore\Admin\Actions\Action;
+use Illuminate\Http\Request;
+
+class ImportPost extends Action
+{
+    public $name = 'import data';
+
+    protected $selector = '.import-post';
+
+    public function handle(Request $request)
+    {
+        // The following code gets the uploaded file, then uses the package `maatwebsite/excel` to process and upload your file and save it to the database.
+        $request-&gt;file('file');
+
+        return $this-&gt;response()-&gt;success('Import complete!')-&gt;refresh();
+    }
+
+    public function form()
+    {
+        $this-&gt;file('file', 'Please select file');
+    }
+
+    public function html()
+    {
+        return &lt;&lt;&lt;HTML
+        &lt;a class="btn btn-sm btn-default import-post"&gt;&lt;i class="fa fa-upload"&gt;&lt;/i&gt;Import data&lt;/a&gt;
+HTML;
+    }
+}</code></pre>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61609900-176d1580-ac8a-11e9-8201-78a092e5bd58.png" alt="WX20190722-140613"></p>
+<p><img src="../../../user-images.githubusercontent.com/1479100/61609908-1a680600-ac8a-11e9-828f-9a9acb0777b0.png" alt="WX20190722-140625"></p>
+<h2 id="Response"><a href="#Response">Response</a></h2>
+<p>Here's an example of the simplest return:</p>
+<pre><code class="language-php">return $this-&gt;response()-&gt;success('Success!');</code></pre>
+<p>After the action class is processed, return a `Success! The success of ``s tips, here are a few other types of returns:</p>
+<pre><code class="language-php">/ / Handling errors
+Try {
+    // Processing logic...
+    
+    return $this-&gt;response()-&gt;success('success...');
+} catch (Exception $e) {
+    return $this-&gt;response()-&gt;error('generating error: '.$e-&gt;getMessage());
+}
+
+// return prompt message
+return $this-&gt;response()-&gt;info('prompt information...');
+
+// return warning message
+return $this-&gt;response()-&gt;warning('warning information...');</code></pre>
+<p>Refresh the page after returning:</p>
+<pre><code class="language-php">return $this-&gt;response()-&gt;success('Success!')-&gt;refresh();</code></pre>
+<p>Redirect to other pages after returning:</p>
+<pre><code class="language-php">return $this-&gt;response()-&gt;success('Success!')-&gt;redirect('/admin/users');</code></pre>
+<p>Download the file after returning:</p>
+<pre><code class="language-php">return $this-&gt;response()-&gt;success('Success!')-&gt;download('http://www.xxx.com/file.zip');</code></pre>
+<p>The toastr message is displayed at the top center by default. You can modify its display position in the following ways:</p>
+<p><code>`</code>php
+// display on top right
+return $ this-&gt;response()-&gt;topRight()-&gt;success('Success!')-&gt;refresh();</p>
+<p>// display in the middle of the bottom
+return $this-&gt;response()-&gt;bottomCenter()-&gt;error('Error!')-&gt;refresh();
+<code>`</code></p>
+<p>The display position control methods are <code>topCenter</code>,<code>topLeft</code>, <code>topRight</code>,<code>bottomLeft</code>, <code>bottomCenter</code>,<code>bottomRight</code>, <code>topFullWidth</code>,<code>bottomFullWidth</code>.</p>
+<p>The toastr message disappears after 5 seconds by default. You can control the disappearance time by the <code>timeout</code> method:</p>
+<p><code>`php // disappears after 3 seconds return $this-&gt;response()-&gt;success('Success!')-&gt;timeout(3000)-&gt;refresh(); </code> `</p>
+<h2 id="Permission control"><a href="#Permission%20control">Permission control</a></h2>
+<blockquote>
+<p>Since v1.7.6</p>
+</blockquote>
+<p>If you need to do the permission control after the action is submitted and before being processed, add an <code>authorize</code> method to the operation class by referring to the following method:</p>
+<pre><code class="language-php">    public function authorize($user, $model)
+    {
+        return false;
+    }</code></pre>
+<p>The first parameter is the current operation user model, the second parameter is the data model or model collection of the current column, and the <code>authorize</code> method controls whether or not to interrupt the execution of the operation by returning <code>true</code> or <code>false</code>.</p>
+<h2 id="Context-menu actions"><a href="#Context-menu%20actions">Context-menu actions</a></h2>
+<p><img src="../../../user-images.githubusercontent.com/1479100/63960336-d8b84f80-cac0-11e9-8fa8-43235933303e.png" alt="WX20190830-005508"></p>
+<p>As shown in the figure above, the action column does not appear in the last column of the table. Right-click on the list to display the action drop-down menu.</p>
+<p>Open on the specified page:</p>
+<pre><code class="language-php">Use Encore\Admin\Grid\Displayers\ContextMenuActions;
+
+$grid-&gt;setActionClass(ContextMenuActions::class);</code></pre>
+<p>Or add configuration globally in <code>config/admin.php</code>:</p>
+<pre><code class="language-php">'grid_action_class' =&gt; \Encore\Admin\Grid\Displayers\ContextMenuActions::class,</code></pre>
+<h2 id="Old version compatible"><a href="#Old%20version%20compatible">Old version compatible</a></h2>
+<p>If you are updating from a lower version to a version of <code>v1.7.3</code> and above, you can continue to use the previously customized action class, but if you want to use the new version of the <code>row action</code>, you can add it in <code>config/admin.php</code> Configuration globally open:</p>
+<pre><code class="language-php">'grid_action_class' =&gt; \Encore\Admin\Grid\Displayers\DropdownActions::class,</code></pre>
+<p>Or open it separately in each table:</p>
+<pre><code class="language-php">use Encore\Admin\Grid\Displayers\DropdownActions;
+
+$grid-&gt;setActionClass(DropdownActio</code></pre>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            v1.8
+        </div>
+        <strong>Documentation powered by <a href="https://adminlte.io/">AdminLTE.io</a>.</strong>
+    </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-52301626-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript" src="../../../cdn.jsdelivr.net/npm/docsearch.js%402/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'f67cec1a592c4a25a3e1d1c0dc38b6af',
+        indexName: 'laravel-admin',
+        inputSelector: '.docsearch',
+        debug: false // Set debug to true if you want to inspect the dropdown
+    });
+</script>
+
+<script src="../../vendor/docs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/docs/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../../vendor/docs/js/adminlte.min.js"></script>
+<script src="../../vendor/docs/plugins/jquery-pjax/jquery.pjax.js"></script>
+<script src="../../vendor/docs/plugins/prism/prism.js" data-manual></script>
+<script src="../../vendor/docs/js/docsd708.js?id=3" data-manual></script>
+</body>
+
+<!-- Mirrored from laravel-admin.org/docs/en/model-grid-custom-actions by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 11:25:15 GMT -->
+</html>
